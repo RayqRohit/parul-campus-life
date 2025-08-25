@@ -233,7 +233,17 @@
     font-weight: 800;
 }
 
-
+.pu-hero-bg::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:50%;                 /* how tall the fade is */
+  pointer-events:none;
+  background: linear-gradient(to top,
+    rgba(0,0,0,0.8) 0%,
+    rgba(0,0,0,.0) 100%
+  );
+}
 
 
 
@@ -1242,8 +1252,8 @@ body {
 
 .pu-pillar-card:hover .pillar-overlay {
     background: linear-gradient(0deg,
-            rgba(0, 0, 0, 0.2) 0%,
-            rgba(0, 0, 0, 0.5) 40%,
+            rgba(0, 0, 0, 0.5) 0%,
+            rgba(0, 0, 0, 0.7) 40%,
             rgba(0, 0, 0, 0.8) 100%);
 }
 
