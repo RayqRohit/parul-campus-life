@@ -183,14 +183,15 @@
     .pillar-title {
         font-size: 26px;
         padding: 14px 24px;
+        
     }
 
     .pillar-description {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .pillar-features {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .pu-pillar-card:hover .pillar-details {
@@ -373,28 +374,34 @@
     }
 
     .pillar-content {
-        padding: 24px;
+        padding: 32px;
     }
 
     .pillar-title {
         font-size: 21px;
-        padding: 10px 16px;
+        padding: 12px 18px;
     }
 
     .pillar-description {
-        font-size: 18px;
+        font-size: 20px;
         /* margin-top: 20px; */
 
     }
 
     .pillar-features {
-        font-size: 13px;
+        font-size: 16px;
     }
 
     .pu-pillar-card:hover .pillar-details {
         opacity: 1;
         max-height: 300px;
         /* Adjust based on your content */
+
+    }
+
+    .pu-pillar-card:hover .pillar-details {
+        opacity: 1;
+        transform: translateY(80px);
     }
 
 }
@@ -630,26 +637,31 @@
     }
 
     .pillar-content {
-        padding: 13px;
+        padding: 32px;
     }
 
     .pillar-title {
         font-size: 20px;
-        padding: 12px;
+        padding: 12px 18px;
     }
 
     .pillar-description {
-        font-size: 12px;
+        font-size: 20px;
     }
 
     .pillar-features {
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .pu-pillar-card:hover .pillar-details {
         opacity: 1;
-        max-height: 300px;
+        max-height: 290px;
         /* Adjust based on your content */
+    }
+
+    .pu-pillar-card:hover .pillar-details {
+        opacity: 1;
+        transform: translateY(60px);
     }
 
 }
@@ -918,20 +930,20 @@
     }
 
     .pillar-content {
-        padding: 9px;
+        padding: 15px;
     }
 
     .pillar-title {
         font-size: 16px;
-        padding: 12px;
+        padding: 16px;
     }
 
     .pillar-description {
-        font-size: 10px;
+        font-size: 15px;
     }
 
     .pillar-features {
-        font-size: 10px;
+        font-size: 14px;
     }
 
     .pu-pillar-card {
@@ -940,10 +952,14 @@
 
     .pu-pillar-card:hover .pillar-details {
         opacity: 1;
-        max-height: 350px;
+        max-height: 290px;
         /* Adjust based on your content */
     }
 
+    .pu-pillar-card:hover .pillar-details {
+        opacity: 1;
+        transform: translateY(50px);
+    }
 
 
 }
@@ -1200,8 +1216,10 @@
     }
 
     .pillar-content {
-        padding: 4px;
+        padding: 25px;
     }
+
+
 
     /* .pillar-title {
         font-size: 10px;
@@ -1209,11 +1227,11 @@
     } */
 
     .pillar-description {
-        font-size: 8px;
+        font-size: 20px;
     }
 
     .pillar-features {
-        font-size: 9px;
+        font-size: 15px;
     }
 
     /* .pu-pillar-card {
@@ -1223,6 +1241,12 @@
     .pu-pillar-card:hover .pillar-details {
         opacity: 1;
         max-height: 300px;
+    }
+
+
+    .pu-pillar-card:hover .pillar-details {
+        opacity: 1;
+        transform: translateY(50px);
     }
 
 
@@ -1265,13 +1289,42 @@
 
 }
 
+@media (max-width : 391px){
+     .pu-cta-text {
+        display: none;
+    }
+
+    .pu-topbar-inner {
+        height: 60px;
+    }
+
+    .pu-topbar-inner {
+        grid-template-columns: 2fr auto;
+    }
+
+    .brand-logo {
+        height: 38px;
+    }
+
+    .pu-cta {
+        padding: 7px;
+        border-radius: 50%;
+    }
+
+    .pu-cta-icon {
+        width: 25px;
+        height: 25px;
+        font-size: 20px;
+    }
+}
+
 
 @media (max-width : 375px) {
     .pu-cta-text {
         display: none;
     }
 
-     .pu-topbar-inner {
+    .pu-topbar-inner {
         height: 60px;
     }
 
@@ -1454,14 +1507,31 @@
     } */
 
     .pillar-features {
-        font-size: 8px;
+        font-size: 15px;
     }
+
+  
+    .pillar-content{
+        padding: 10px;
+    }
+
+    .pillar-title{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+     .pu-pillar-card:hover .pillar-details {
+        opacity: 1;
+        max-height: 299px;
+    }
+
 
     .pu-pillar-card:hover .pillar-details {
         opacity: 1;
-        max-height: 200px;
-        /* Adjust based on your content */
+        transform: translateY(50px);
     }
+
 
 
     /* study in parul university */
