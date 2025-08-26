@@ -43,7 +43,7 @@
 }
 
 .pu-topbar-inner {
-    height: 72px;
+    height: 65px;
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
@@ -138,6 +138,9 @@
 }
 
 
+
+
+
 /* header  */
 
 .pu-hero {
@@ -160,6 +163,8 @@
     inset: 0;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+
 }
 
 .pu-hero-overlay {
@@ -233,16 +238,18 @@
     font-weight: 800;
 }
 
-.pu-hero-bg::after{
-  content:"";
-  position:absolute;
-  left:0; right:0; bottom:0;
-  height:50%;                 /* how tall the fade is */
-  pointer-events:none;
-  background: linear-gradient(to top,
-    rgba(0,0,0,0.8) 0%,
-    rgba(0,0,0,.0) 100%
-  );
+.pu-hero-bg::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50%;
+    /* how tall the fade is */
+    pointer-events: none;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, .0) 100%);
 }
 
 
@@ -317,8 +324,8 @@
 }
 
 .pu-stat-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    /* transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); */
 }
 
 .stat-pink {
@@ -480,7 +487,7 @@
     text-align: center;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    transition: transform 0.3s ease, border 0.3s ease;
     min-width: 250px;
     height: 250px;
     display: flex;
@@ -492,66 +499,66 @@
 }
 
 .pu-stat-item:hover {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
     /* Slightly more lift */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); */
 }
 
 /* Enhanced hover effects for each card type */
 .stat-pink:hover {
     border: 4px solid #FF69B4;
-    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
+    /* box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3); */
 }
 
 .stat-yellow:hover {
     border: 4px solid #FFD700;
-    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+    /* box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3); */
 }
 
 .stat-blue:hover {
     border: 4px solid #1E90FF;
-    box-shadow: 0 20px 40px rgba(30, 144, 255, 0.3);
+    /* box-shadow: 0 20px 40px rgba(30, 144, 255, 0.3); */
 }
 
 .stat-green:hover {
     border: 4px solid #32CD32;
-    box-shadow: 0 20px 40px rgba(50, 205, 50, 0.3);
+    /* box-shadow: 0 20px 40px rgba(50, 205, 50, 0.3); */
 }
 
 
 .pu-stat-item.active {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); */
 }
 
 .stat-pink.active {
     border: 4px solid #FF69B4;
-    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
-    background: #FFD2D5;
+    /* box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3); */
+    /* background: #FFD2D5; */
 }
 
 .stat-yellow.active {
     border: 4px solid #FFD700;
-    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
-    background: #FFF8D2;
+    /* box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3); */
+    /* background: #FFF8D2; */
 }
 
 .stat-blue.active {
     border: 4px solid #1E90FF;
-    box-shadow: 0 20px 40px rgba(30, 144, 255, 0.3);
-    background: #D2EAFF;
+    /* box-shadow: 0 20px 40px rgba(30, 144, 255, 0.3); */
+    /* background: #D2EAFF; */
 }
 
 .stat-green.active {
     border: 4px solid #32CD32;
-    box-shadow: 0 20px 40px rgba(50, 205, 50, 0.3);
-    background: #E6F9DD;
+    /* box-shadow: 0 20px 40px rgba(50, 205, 50, 0.3); */
+    /* background: #E6F9DD; */
 }
 
 /* Update existing hover styles to not conflict with active */
 .pu-stat-item:hover:not(.active) {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    /* transform: translateY(-5px); */
+    /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); */
 }
 
 .stat-pink:hover:not(.active) {
@@ -662,7 +669,7 @@
 
 .pu-glance-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); */
 }
 
 .card-overlay {
@@ -940,18 +947,33 @@ body {
     }
 }
 
-@media (min-width:768px) and (max-width:992px) {
+@media(min-width : 850px) and (max-width : 991px) {
     .virtual-tour {
         height: 70vh;
+        min-height: 450px;
+    }
+
+    .top-ellipse {
+        top: -34%;
+    }
+
+    .bottom-ellipse {
+        bottom: -34%;
+    }
+}
+
+@media (min-width : 768px) and (max-width : 850px) {
+    .virtual-tour {
+        height: 60vh;
         min-height: 400px;
     }
 
     .top-ellipse {
-        top: -29%;
+        top: -30%;
     }
 
     .bottom-ellipse {
-        bottom: -29%;
+        bottom: -30%;
     }
 }
 
@@ -981,19 +1003,27 @@ body {
     }
 
     .top-ellipse {
-        top: -27%;
+        top: -33%;
     }
 
     .bottom-ellipse {
-        bottom: -28%;
+        bottom: -33%;
     }
 }
 
-@media (max-width:320px) {
+@media (max-width:375px) {
     .virtual-tour {
         height: 40vh;
         max-height: 350px;
         min-height: 250px;
+    }
+
+    .top-ellipse {
+        top: -29%;
+    }
+
+    .bottom-ellipse {
+        bottom: -29%;
     }
 }
 
@@ -1155,6 +1185,21 @@ body {
     }
 }
 
+#campusSlider {
+    cursor: grab;
+    touch-action: pan-y;
+    /* allow vertical page scroll; let us handle horizontal drag */
+}
+
+#campusSlider.dragging {
+    cursor: grabbing;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+#campusSlider img {
+    pointer-events: none;
+}
 
 
 /* ========== Four Pillars of Campus Life Section ========== */
@@ -1399,7 +1444,7 @@ body {
 @media (max-width: 768px) {
 
     /* On mobile, show content without sliding animation */
-    .pillar-content {
+    /* .pillar-content {
         transform: translateY(-60px);
         position: static;
     }
@@ -1411,21 +1456,21 @@ body {
 
     .pu-pillar-card:hover .pillar-content {
         transform: translateY(-60px);
-    }
+    } */
 }
 
 @media (max-width: 480px) {
     .pillar-content {
-        padding: 20px;
-        transform: translateY(-40px);
+        /* padding: 20px; */
+        /* transform: translateY(-40px); */
     }
 
     .pu-pillar-card:hover .pillar-content {
-        transform: translateY(-40px);
+        /* transform: translateY(-40px); */
     }
 
     .pillar-features {
-        font-size: 12px;
+        font-size: 16px;
     }
 
     .pu-pillars-grid {
@@ -1608,7 +1653,7 @@ body {
 .study-title {
     font-family: var(--font-bold, ui-sans-serif);
     font-weight: 800;
-    line-height: 1.02;
+    line-height: 1.08;
     letter-spacing: .2px;
     font-size: clamp(36px, 5.2vw, 64px);
     margin: 0 0 16px;
@@ -1874,12 +1919,22 @@ body {
 /* Responsive */
 @media (max-width:900px) {
     .nh-grid {
-        grid-template-columns: 1fr;
-        gap: 22px;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        row-gap: 50px;
     }
 
     .nh-card-text {
         width: 90%;
+        font-size: 15px;
+    }
+
+    .nh-card-title {
+        font-size: 25px;
+    }
+
+    .nh-subtitle {
+        font-size: 18px;
     }
 }
 
@@ -2060,7 +2115,7 @@ body {
 }
 
 .pu-cta-line {
-    margin: 8px 0 26px;
+    margin: 26px 0 26px;
     color: #111;
     font-family: var(--font-regular, ui-sans-serif);
     font-size: clamp(18px, 2.6vw, 28px);
@@ -2121,8 +2176,6 @@ body {
     height: clamp(90px, 22vw, 320px);
     background: url("../images/APPLY NOW.png") no-repeat center bottom / contain;
     opacity: .8;
-    /* was .8; make it subtle like the mock */
     pointer-events: none;
     z-index: 0;
-    /* behind everything in this section */
 }

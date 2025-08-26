@@ -1,50 +1,50 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const statsCards = document.querySelectorAll('.pu-stat-item');
-    const campusImage = document.querySelector('#campusImage img');
-    const defaultImage = './assets/images/campus-1.png'; // Your default image
-    const defaultAlt = 'Beautiful green campus with walkways and trees';
+  const statsCards = document.querySelectorAll('.pu-stat-item');
+  const campusImage = document.querySelector('#campusImage img');
+  const defaultImage = './assets/images/campus-1.png'; // Your default image
+  const defaultAlt = 'Beautiful green campus with walkways and trees';
 
-    // Preload images for smooth transitions
-    const preloadImages = [];
+  // Preload images for smooth transitions
+  const preloadImages = [];
 
-    statsCards.forEach(card => {
-        const imageSrc = card.dataset.image;
-        if (imageSrc) {
-            const img = new Image();
-            img.src = imageSrc;
-            preloadImages.push(img);
-        }
-    });
+  statsCards.forEach(card => {
+    const imageSrc = card.dataset.image;
+    if (imageSrc) {
+      const img = new Image();
+      img.src = imageSrc;
+      preloadImages.push(img);
+    }
+  });
 
-    // Add hover event listeners
-    statsCards.forEach(card => {
-        const hoverImage = card.dataset.image;
-        const hoverAlt = card.dataset.alt;
+  // Add hover event listeners
+  statsCards.forEach(card => {
+    const hoverImage = card.dataset.image;
+    const hoverAlt = card.dataset.alt;
 
-        if (hoverImage) {
-            // Mouse enter event
-            card.addEventListener('mouseenter', function () {
-                campusImage.style.opacity = '0';
+    if (hoverImage) {
+      // Mouse enter event
+      card.addEventListener('mouseenter', function () {
+        campusImage.style.opacity = '0';
 
-                setTimeout(() => {
-                    campusImage.src = hoverImage;
-                    campusImage.alt = hoverAlt;
-                    campusImage.style.opacity = '1';
-                }, 200); // Half of the transition time
-            });
+        setTimeout(() => {
+          campusImage.src = hoverImage;
+          campusImage.alt = hoverAlt;
+          campusImage.style.opacity = '1';
+        }, 200); // Half of the transition time
+      });
 
-            // Mouse leave event
-            card.addEventListener('mouseleave', function () {
-                campusImage.style.opacity = '0';
+      // Mouse leave event
+      card.addEventListener('mouseleave', function () {
+        campusImage.style.opacity = '0';
 
-                setTimeout(() => {
-                    campusImage.src = defaultImage;
-                    campusImage.alt = defaultAlt;
-                    campusImage.style.opacity = '1';
-                }, 200);
-            });
-        }
-    });
+        setTimeout(() => {
+          campusImage.src = defaultImage;
+          campusImage.alt = defaultAlt;
+          campusImage.style.opacity = '1';
+        }, 200);
+      });
+    }
+  });
 });
 
 
@@ -52,93 +52,125 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Virtual Tour Slider JavaScript
 // campus slider: drag + trackpad only, center only first image on load
-const slider = document.getElementById('campusSlider'); // .slider-wrapper
-if (!slider) console.warn('#campusSlider not found');
+/* Campus slider: drag + trackpad + smooth autoplay (infinite loop) */
+(() => {
+  const slider = document.getElementById('campusSlider');        // .slider-wrapper
+  if (!slider) return;
+  const track = slider.querySelector('.slider-track');
+  if (!track) return;
 
-const firstSlide = slider?.querySelector('.slide');
+  /* ===== Controls (override via data-speed / data-pause) ===== */
+  const SPEED_DEFAULT = 60;   // px per second (faster)
+  const PAUSE_DEFAULT = 1200;  // ms resume delay after drag
 
-let isDown = false;
-let startX = 0;
-let startScroll = 0;
-let movedDuringDrag = false;
-let userMovedAway = false;      // once true, stop re-centering on resize
-let suppressMark = false;       // ignore scroll events triggered by our own centering
+  const SPEED = Number(slider.dataset.speed) || SPEED_DEFAULT;
+  const PAUSE_MS = Number(slider.dataset.pause) || PAUSE_DEFAULT;
 
-/* ---------- helpers ---------- */
-const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+  let loopWidth = 0;
+  let rafId = null, lastTs = 0;
+  let autoplay = true;
 
-function targetLeftFor(el) {
-    const center = el.offsetLeft + el.offsetWidth / 2;
-    return clamp(center - slider.clientWidth / 2, 0, slider.scrollWidth - slider.clientWidth);
-}
+  /* build seamless loop */
+  const originals = Array.from(track.children);
+  if (originals.length) originals.forEach(n => track.appendChild(n.cloneNode(true)));
 
-function nearFirst(threshold = 6) {
-    const t = targetLeftFor(firstSlide);
-    return Math.abs(slider.scrollLeft - t) <= threshold;
-}
+  function imagesReady() {
+    const imgs = track.querySelectorAll('img');
+    return Promise.all(Array.from(imgs).map(img =>
+      img.complete ? Promise.resolve() : new Promise(r => img.addEventListener('load', r, { once: true }))
+    ));
+  }
 
-function centerFirstSlide() {
-    if (!slider || !firstSlide) return;
+  function recalc() { loopWidth = track.scrollWidth / 2; }
 
-    // wait until layout/image is ready
-    if (firstSlide.offsetWidth === 0) {
-        requestAnimationFrame(centerFirstSlide);
-        return;
+  /* RAF loop (never stops unless tab hidden) */
+  function tick(ts) {
+    if (!lastTs) lastTs = ts;
+    const dt = Math.min(50, ts - lastTs);
+    lastTs = ts;
+
+    if (autoplay) {
+      slider.scrollLeft += (SPEED * dt / 1000);
+      if (slider.scrollLeft >= loopWidth) slider.scrollLeft -= loopWidth;
     }
+    rafId = requestAnimationFrame(tick);
+  }
+  const start = () => { if (rafId == null) rafId = requestAnimationFrame(tick); };
+  const stop = () => { if (rafId != null) { cancelAnimationFrame(rafId); rafId = null; } };
 
-    suppressMark = true;
-    slider.scrollLeft = targetLeftFor(firstSlide);
-    setTimeout(() => (suppressMark = false), 60);
-}
+  /* pause helper (only used after drag) */
+  const pause = (() => {
+    let t;
+    return (ms = PAUSE_MS) => {
+      autoplay = false;
+      clearTimeout(t);
+      t = setTimeout(() => { autoplay = true; }, ms);
+    };
+  })();
 
-/* ---------- center first on load; resize only until user scrolls ---------- */
-window.addEventListener('load', centerFirstSlide);
+  /* drag to scroll (mouse / touch / pen) */
+  let isDown = false, startX = 0, startScroll = 0;
 
-let resizeTimer;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        if (!userMovedAway || nearFirst()) centerFirstSlide();
-    }, 120);
-});
-
-/* ---------- mark when user moved away (trackpad or drag) ---------- */
-slider.addEventListener('scroll', () => {
-    if (!suppressMark && !nearFirst()) userMovedAway = true;
-});
-
-/* ---------- drag to scroll (mouse / pen / touch) ---------- */
-slider.addEventListener('pointerdown', (e) => {
+  slider.addEventListener('pointerdown', (e) => {
     isDown = true;
-    movedDuringDrag = false;
     startX = e.clientX;
     startScroll = slider.scrollLeft;
     slider.classList.add('dragging');
     slider.setPointerCapture(e.pointerId);
-});
+    autoplay = false;           // pause while user is dragging
+    e.preventDefault();         // helps cursor + avoids text selection
+  });
 
-slider.addEventListener('pointermove', (e) => {
+  slider.addEventListener('pointermove', (e) => {
     if (!isDown) return;
-    const dx = e.clientX - startX;
-    if (Math.abs(dx) > 0) movedDuringDrag = true;
-    slider.scrollLeft = startScroll - dx;
-});
+    slider.scrollLeft = startScroll - (e.clientX - startX);
+    e.preventDefault();         // keeps drag smooth on some browsers
+  });
 
-function endDrag(e) {
+  const endDrag = (e) => {
     if (!isDown) return;
     isDown = false;
     slider.classList.remove('dragging');
-    try { slider.releasePointerCapture?.(e.pointerId); } catch { }
-    if (movedDuringDrag) userMovedAway = true;
-}
-slider.addEventListener('pointerup', endDrag);
-slider.addEventListener('pointercancel', endDrag);
-slider.addEventListener('mouseleave', () => {
-    if (isDown) { isDown = false; slider.classList.remove('dragging'); }
-});
+    try { slider.releasePointerCapture(e.pointerId); } catch { }
+    pause();                    // resume after a short delay
+  };
 
-/* prevent ghost image drag */
-slider.addEventListener('dragstart', (e) => e.preventDefault());
+  slider.addEventListener('pointerup', endDrag);
+  slider.addEventListener('pointercancel', endDrag);
+  slider.addEventListener('mouseleave', () => { if (isDown) endDrag({}); });
+
+  /* NO hover/wheel pause anymore */
+  // (removed mouseenter/mouseleave/wheel listeners)
+
+  /* respect reduced motion only if you want — comment the next 3 lines to always autoplay */
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (mq.matches) autoplay = false;
+  mq.addEventListener?.('change', e => { autoplay = !e.matches; });
+
+  /* pause loop when tab hidden; resume on return */
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stop();
+    else { lastTs = 0; start(); }
+  });
+
+  /* init */
+  imagesReady().then(() => {
+    recalc();
+    slider.scrollLeft = 0;
+    start();
+
+    let rt;
+    window.addEventListener('resize', () => {
+      clearTimeout(rt);
+      rt = setTimeout(() => {
+        const pos = loopWidth ? (slider.scrollLeft % loopWidth) : 0;
+        recalc();
+        slider.scrollLeft = pos;
+      }, 160);
+    });
+  });
+})();
+
 
 
 
@@ -226,3 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // nothing needed here; but if you dynamically inject content and want a
   // quick re-measure during animation, you can re-run openItem on the open one.
 });
+
+
+
+
+

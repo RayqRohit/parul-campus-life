@@ -1,52 +1,1097 @@
-/* 3rd section */
-@media (max-width: 992px) {
-    .pu-glance-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(5, 180px);
+/* ================= Desktop Large ================= */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    .pu-topbar-inner {
+        height: 70px;
+    }
+
+    .brand-logo {
+        height: 58px;
+    }
+
+    .pu-nav a {
+        font-size: 21px;
+    }
+
+    .pu-cta {
+        font-size: 21px;
+        padding: 14px 28px;
+    }
+
+    /* header */
+
+
+
+    .pu-hero {
+        padding-bottom: 40px;
+    }
+
+    .pu-hero-content {
+        padding: 25px 50px 40px 50px;
+    }
+
+    .pu-hero-title {
+        font-size: 68px;
+        margin: 10px 0 25px;
+    }
+
+    .pu-hero-pills {
+        /* max-width: 340px; */
         gap: 15px;
+        margin: 40px 0 20px;
     }
 
-    .pu-glance-card:nth-child(1) {
-        grid-column: 1 / 3;
-        grid-row: 1 / 3;
+    .pill {
+        padding: 12px 52px;
+        font-size: 19px;
     }
 
-    .pu-glance-card:nth-child(2) {
-        grid-column: 1 / 2;
-        grid-row: 3 / 4;
+    .pu-hero-desc {
+        font-size: 21px;
     }
 
-    .pu-glance-card:nth-child(3) {
-        grid-column: 2 / 3;
-        grid-row: 3 / 4;
+
+    /* campus stats */
+
+    .pu-stats-section {
+        padding: 60px 0;
     }
 
-    .pu-glance-card:nth-child(4) {
-        grid-column: 1 / 2;
-        grid-row: 4 / 5;
+    .pu-stats-title {
+        font-size: 68px;
+        margin-bottom: 70px;
     }
 
-    .pu-glance-card:nth-child(5) {
-        grid-column: 2 / 3;
-        grid-row: 4 / 5;
+    .pu-stats-image {
+        margin-bottom: 45px;
+        border-radius: 24px;
     }
+
+    .pu-stats-grid {
+        gap: 24px;
+        margin-top: -200px;
+    }
+
+    .pu-stat-item {
+        padding: 35px 24px;
+        border-radius: 28px;
+        /* min-width: 280px;
+        height: 280px; */
+    }
+
+    .stat-number {
+        font-size: 45px;
+        margin-bottom: 10px;
+    }
+
+    .stat-label {
+        font-size: 26px;
+    }
+
+    .pu-stats-image::after {
+        height: 200px;
+    }
+
+
+    /* pu glance */
+
+    .pu-campus-glance {
+        padding: 70px 0;
+    }
+
+    .pu-glance-header {
+        margin-bottom: 55px;
+    }
+
+    .pu-glance-title {
+        font-size: 55px;
+    }
+
+    .pu-glance-subtitle {
+        font-size: 22px;
+        max-width: 650px;
+    }
+
+    .pu-glance-grid {
+        grid-template-rows: repeat(3, 220px);
+        gap: 24px;
+    }
+
+    .card-content {
+        padding: 35px;
+    }
+
+    .card-number {
+        font-size: 52px;
+        margin-bottom: 8px;
+    }
+
+    .card-number-sub {
+        font-size: 38px;
+        margin-bottom: 12px;
+    }
+
+    .card-title {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    .card-title-large {
+        font-size: 38px;
+        margin-bottom: 15px;
+    }
+
+    .card-desc {
+        font-size: 17px;
+    }
+
+    /* virtual tour */
+
+    .pu-tour-subtitle {
+        margin-bottom: 0 !important;
+    }
+
+
+    /* pillars */
+
+    .pu-four-pillars {
+        padding: 18px 0 40px 0;
+    }
+
+    .pu-pillars-header {
+        margin-bottom: 65px;
+    }
+
+    .pu-pillars-title {
+        font-size: 58px;
+        margin-bottom: 13px;
+    }
+
+    .pu-pillars-subtitle {
+        font-size: 21px;
+        max-width: 550px;
+    }
+
+    .pu-pillars-grid {
+        gap: 22px;
+        /* height: 540px; */
+    }
+
+    .pillar-content {
+        padding: 32px;
+    }
+
+    .pillar-title {
+        font-size: 26px;
+        padding: 14px 24px;
+    }
+
+    .pillar-description {
+        font-size: 18px;
+    }
+
+    .pillar-features {
+        font-size: 14px;
+    }
+
+    .pu-pillar-card:hover .pillar-details {
+        opacity: 1;
+        max-height: 300px;
+        /* Adjust based on your content */
+    }
+
 }
 
-@media (max-width: 576px) {
+/* ================= Desktop Normal ================= */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .pu-topbar-inner {
+        height: 65px;
+        gap: 18px;
+    }
+
+    .brand-logo {
+        height: 45px;
+    }
+
+    .pu-nav a {
+        font-size: 17px;
+    }
+
+    .pu-cta {
+        font-size: 16px;
+        padding: 11px 20px;
+    }
+
+
+    /* header */
+
+    .pu-hero {
+        padding-bottom: 35px;
+    }
+
+    .pu-hero-content {
+        padding: 22px 45px 35px 45px;
+    }
+
+    .pu-hero-title {
+        font-size: 58px;
+        margin: 9px 0 24px;
+    }
+
+    .pu-hero-pills {
+        /* max-width: 320px; */
+        gap: 17px;
+        margin: 15px 0 19px;
+    }
+
+    .pill {
+        padding: 12px 50px;
+        font-size: 18px;
+    }
+
+    .pu-hero-desc {
+        font-size: 23px;
+    }
+
+    /* campus stats */
+
+    .pu-stats-section {
+        padding: 70px 0;
+    }
+
+    .pu-stats-title {
+        font-size: 55px;
+        margin-bottom: 55px;
+    }
+
+    .pu-stats-image {
+        margin-bottom: 35px;
+        border-radius: 18px;
+    }
+
+    .pu-stats-grid {
+        gap: 18px;
+        margin-top: -160px;
+    }
+
+    .pu-stat-item {
+        padding: 26px 18px;
+        border-radius: 22px;
+        min-width: 220px;
+        height: 220px;
+    }
+
+    .stat-number {
+        font-size: 46px;
+        margin-bottom: 7px;
+    }
+
+    .stat-label {
+        font-size: 20px;
+    }
+
+    .pu-stats-image::after {
+        height: 160px;
+    }
+
+
+    /* pu glance */
     .pu-campus-glance {
-        padding: 60px 0;
+        padding: 55px 0;
+    }
+
+    .pu-glance-header {
+        margin-bottom: 55px;
+    }
+
+    .pu-glance-title {
+        font-size: 48px;
+        margin-bottom: 18px;
+    }
+
+    .pu-glance-subtitle {
+        font-size: 19px;
+        max-width: 550px;
+    }
+
+    .pu-glance-grid {
+        grid-template-rows: repeat(3, 180px);
+        gap: 18px;
+    }
+
+    .card-content {
+        padding: 26px;
+    }
+
+    .card-number {
+        font-size: 42px;
+        margin-bottom: 6px;
+    }
+
+    .card-number-sub {
+        font-size: 28px;
+        margin-bottom: 9px;
+    }
+
+    .card-title {
+        font-size: 22px;
+        margin-bottom: 7px;
+    }
+
+    .card-title-large {
+        font-size: 32px;
+        margin-bottom: 11px;
+    }
+
+    .card-desc {
+        font-size: 15px;
+    }
+
+
+    /* pillars */
+
+    .pu-four-pillars {
+        padding: 5px 0 30px 0;
+    }
+
+    .pu-pillars-header {
+        margin-bottom: 50px;
+    }
+
+    .pu-pillars-title {
+        font-size: 52px;
+        margin-bottom: 9px;
+    }
+
+    .pu-pillars-subtitle {
+        font-size: 18px;
+        max-width: 440px;
+    }
+
+    .pu-pillars-grid {
+        gap: 14px;
+        /* height: 430px; */
+    }
+
+    .pillar-content {
+        padding: 24px;
+    }
+
+    .pillar-title {
+        font-size: 21px;
+        padding: 10px 16px;
+    }
+
+    .pillar-description {
+        font-size: 18px;
+        /* margin-top: 20px; */
+
+    }
+
+    .pillar-features {
+        font-size: 13px;
+    }
+
+    .pu-pillar-card:hover .pillar-details {
+        opacity: 1;
+        max-height: 300px;
+        /* Adjust based on your content */
+    }
+
+}
+
+/* ================= Tablet ================= */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    .container,
+    .container-md,
+    .container-sm {
+        max-width: 100%;
+    }
+
+
+    .pu-topbar-inner {
+        height: 52px;
+        gap: 12px;
+    }
+
+    .brand-logo {
+        height: 45px;
+    }
+
+    .pu-nav {
+        display: none !important;
+    }
+
+    .pu-cta {
+        font-size: 18px;
+        padding: 9px 15px;
+    }
+
+
+
+    .pu-cta-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+
+
+    .pu-topbar-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    /* header */
+
+    .pu-hero {
+        padding-bottom: 30px;
+    }
+
+    .pu-hero-content {
+        padding: 20px 40px 32px 40px;
+    }
+
+    .pu-hero-title {
+        font-size: 48px;
+        margin: 8px 0 22px;
+    }
+
+    .pu-hero-pills {
+        /* max-width: 300px; */
+        gap: 16px;
+        margin: 14px 0 18px;
+    }
+
+    .pill {
+        padding: 12px 48px;
+        font-size: 17px;
+    }
+
+    .pu-hero-desc {
+        font-size: 18px;
+    }
+
+    /* campus stats */
+
+    .pu-stats-section {
+        padding: 50px 0;
+    }
+
+    .pu-stats-title {
+        font-size: 42px;
+        margin-bottom: 40px;
+    }
+
+    .pu-stats-image {
+        margin-bottom: 25px;
+        border-radius: 15px;
+    }
+
+    .pu-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: -120px;
+    }
+
+    .pu-stat-item {
+        padding: 20px 15px;
+        border-radius: 18px;
+        min-width: 180px;
+        height: 180px;
+    }
+
+    .stat-number {
+        font-size: 50px;
+        margin-bottom: 5px;
+    }
+
+    .stat-label {
+        font-size: 16px;
+    }
+
+    .pu-stats-image::after {
+        height: 120px;
+    }
+
+    /* pu glance */
+
+    .pu-campus-glance {
+        padding: 45px 0;
     }
 
     .pu-glance-header {
         margin-bottom: 50px;
     }
 
+    .pu-glance-title {
+        font-size: 42px;
+        margin-bottom: 15px;
+    }
+
+    .pu-glance-subtitle {
+        font-size: 20px;
+        /* max-width: 480px; */
+    }
+
     .pu-glance-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(5, 200px);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 240px);
         gap: 15px;
     }
 
+    /* Reorganize grid for tablet layout */
+    .pu-glance-card:nth-child(1) {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+
+    .pu-glance-card:nth-child(2) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+
+    .pu-glance-card:nth-child(3) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    .pu-glance-card:nth-child(4) {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+
+    .pu-glance-card:nth-child(5) {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .card-number {
+        font-size: 55px;
+        margin-bottom: 10px;
+    }
+
+    .card-number-sub {
+        font-size: 27px;
+        margin-bottom: 6px;
+    }
+
+    .card-title {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .card-title-large {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .card-desc {
+        font-size: 13px;
+    }
+
+    /* virtual tour */
+
+    .pu-tour-header {
+        padding: 70px 0 0 0;
+    }
+
+    .pu-tour-subtitle {
+        margin-bottom: 0 !important;
+    }
+
+
+    /* pillars */
+
+    .pu-four-pillars {
+        padding: 50px 0 20px 0;
+    }
+
+    .pu-pillars-header {
+        margin-bottom: 38px;
+    }
+
+    .pu-pillars-title {
+        font-size: 45px;
+        margin-bottom: 6px;
+    }
+
+    .pu-pillars-subtitle {
+        font-size: 16px;
+        max-width: 360px;
+    }
+
+    .pu-pillars-grid {
+        gap: 8px;
+        /* height: 320px; */
+    }
+
+    .pillar-content {
+        padding: 13px;
+    }
+
+    .pillar-title {
+        font-size: 20px;
+        padding: 12px;
+    }
+
+    .pillar-description {
+        font-size: 12px;
+    }
+
+    .pillar-features {
+        font-size: 12px;
+    }
+
+    .pu-pillar-card:hover .pillar-details {
+        opacity: 1;
+        max-height: 300px;
+        /* Adjust based on your content */
+    }
+
+}
+
+/* ================= Mobile Large ================= */
+@media (min-width: 480px) and (max-width: 767.98px) {
+
+
+    .container,
+    .container-md,
+    .container-sm {
+        max-width: 100%;
+    }
+
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .pu-topbar {
+        border-radius: 0;
+        padding-block: 7px;
+    }
+
+    .pu-topbar-inner {
+        height: 55px;
+        gap: 7px;
+    }
+
+    .brand-logo {
+        height: 35px;
+    }
+
+    .pu-nav {
+        display: none !important;
+    }
+
+    .pu-cta {
+        font-size: 17px;
+        padding: 7px 13px;
+        min-width: 40px;
+    }
+
+    .pu-cta-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 13px;
+    }
+
+
+    /* header */
+    .pu-hero {
+        padding-bottom: 25px;
+    }
+
+    .pu-hero-content {
+        padding: 18px 30px 28px 22px;
+    }
+
+    .pu-hero-title {
+        font-size: 46px;
+        margin: 7px 0 20px;
+    }
+
+    .pu-hero-pills {
+        max-width: 290px;
+        gap: 15px;
+        margin: 13px 0 17px;
+    }
+
+    .pill {
+        padding: 15px 42px;
+        font-size: 16px;
+    }
+
+    .pu-hero-desc {
+        font-size: 18px;
+    }
+
+
+    /* campus stats */
+
+    .pu-stats-section {
+        padding: 40px 0;
+    }
+
+    .pu-stats-title {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+    .pu-stats-image {
+        margin-bottom: 20px;
+        border-radius: 12px;
+    }
+
+    .pu-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: -80px;
+    }
+
+    .pu-stat-item {
+        padding: 15px 12px;
+        border-radius: 15px;
+        min-width: 140px;
+        height: 140px;
+    }
+
+    .stat-number {
+        font-size: 40px;
+        margin-bottom: 4px;
+    }
+
+    .stat-label {
+        font-size: 14px;
+    }
+
+    .pu-stats-image::after {
+        height: 80px;
+    }
+
+
+    /* pu glance */
+
+    .pu-campus-glance {
+        padding: 35px 0;
+    }
+
+    .pu-glance-header {
+        margin-bottom: 40px;
+    }
+
+    .pu-glance-title {
+        font-size: 38px;
+        margin-bottom: 12px;
+    }
+
+    .pu-glance-subtitle {
+        font-size: 15px;
+        max-width: 400px;
+    }
+
+    .pu-glance-card {
+        border-radius: 15px;
+    }
+
+    /* .pu-glance-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 240px);
+        gap: 15px;
+    } */
+
+    /* Stack all cards in single column */
+    /* .pu-glance-card:nth-child(1),
+    .pu-glance-card:nth-child(2),
+    .pu-glance-card:nth-child(3),
+    .pu-glance-card:nth-child(4),
+    .pu-glance-card:nth-child(5) {
+        grid-column: 1 / 2;
+        grid-row: auto;
+    } */
+
+    .pu-glance-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 240px);
+        gap: 15px;
+    }
+
+    /* Reorganize grid for tablet layout */
+    .pu-glance-card:nth-child(1) {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+
+    .pu-glance-card:nth-child(2) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+
+    .pu-glance-card:nth-child(3) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    .pu-glance-card:nth-child(4) {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+
+    .pu-glance-card:nth-child(5) {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    }
+
+    .card-content {
+        padding: 16px;
+    }
+
+    .card-number {
+        font-size: 35px;
+        margin-bottom: 4px;
+    }
+
+    .card-number-sub {
+        font-size: 25px;
+        margin-bottom: 5px;
+    }
+
+    .card-title {
+        font-size: 25px;
+        margin-bottom: 5px;
+    }
+
+    .card-title-large {
+        font-size: 25px;
+        margin-bottom: 6px;
+    }
+
+    .card-desc {
+        font-size: 12px;
+    }
+
+
+    /* virtual tour */
+
+    .pu-tour-header {
+        padding: 80px 0 0 0;
+    }
+
+    .pu-tour-subtitle {
+        margin-bottom: 0 !important;
+    }
+
+    .tour-icon img {
+        width: 80px;
+        height: 80px;
+    }
+
+
+    /* pillars */
+
+    .pu-four-pillars {
+        padding: 0 0 10px 0;
+    }
+
+    .pu-pillars-header {
+        margin-bottom: 24px;
+    }
+
+    .pu-pillars-title {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    .pu-pillars-subtitle {
+        font-size: 16px;
+        max-width: 380px;
+    }
+
+    .pu-pillars-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 12px;
+        height: auto;
+    }
+
+    .pillar-content {
+        padding: 9px;
+    }
+
+    .pillar-title {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .pillar-description {
+        font-size: 10px;
+    }
+
+    .pillar-features {
+        font-size: 10px;
+    }
+
+    .pu-pillar-card {
+        /* min-height: 220px; */
+    }
+
+    .pu-pillar-card:hover .pillar-details {
+        opacity: 1;
+        max-height: 350px;
+        /* Adjust based on your content */
+    }
+
+
+
+}
+
+/* ================= Mobile Small ================= */
+@media (min-width: 320px) and (max-width: 479.98px) {
+    .container {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .pu-topbar {
+        padding-block: 5px;
+    }
+
+    .pu-topbar-inner {
+        height: 55px;
+        gap: 4px;
+    }
+
+    .brand-logo {
+        height: 1.8rem;
+    }
+
+    .pu-nav {
+        display: none !important;
+    }
+
+    .pu-cta {
+        font-size: 16px;
+        padding: 5px 8px;
+        min-width: 35px;
+    }
+
+    .pu-cta-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+
+    .pu-topbar-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* header */
+
+    .pu-hero {
+        padding-bottom: 20px;
+    }
+
+    .pu-hero-content {
+        padding: 35px 0 36px;
+        padding-inline: 15px;
+    }
+
+    .pu-hero-title {
+        font-size: 40px;
+        margin: 6px 0 30px;
+    }
+
+    .pu-hero-pills {
+        max-width: 100%;
+        gap: 14px;
+        margin: 12px 0 16px;
+    }
+
+    .pill {
+        padding: 14px 38px;
+        font-size: 18px;
+    }
+
+    .pu-hero-desc {
+        font-size: 17px;
+    }
+
+
+    /* campus stats */
+
+    .pu-stats-section {
+        padding: 30px 0;
+    }
+
+    .pu-stats-title {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .pu-stats-image {
+        margin-bottom: 15px;
+        border-radius: 10px;
+    }
+
+    .pu-stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 0;
+    }
+
+    .pu-stat-item {
+        padding: 12px 10px;
+        border-radius: 12px;
+        min-width: auto;
+        height: 120px;
+    }
+
+    .stat-number {
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+
+    .stat-label {
+        font-size: 12px;
+        line-height: 1.2;
+    }
+
+    .pu-stats-image::after {
+        height: 0px;
+    }
+
+    /* pu glance */
+
+    .pu-campus-glance {
+        padding: 25px 0;
+    }
+
+    .pu-glance-header {
+        margin-bottom: 30px;
+    }
+
+    .pu-glance-title {
+        font-size: 33px;
+        margin-bottom: 10px;
+    }
+
+    .pu-glance-subtitle {
+        font-size: 13px;
+        /* max-width: 320px; */
+    }
+
+    .pu-glance-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 180px);
+        gap: 10px;
+    }
+
+
+
+    /* Stack all cards in single column */
     .pu-glance-card:nth-child(1),
     .pu-glance-card:nth-child(2),
     .pu-glance-card:nth-child(3),
@@ -56,60 +1101,370 @@
         grid-row: auto;
     }
 
-    .card-content {
-        padding: 20px;
-    }
-}
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .pu-virtual-tour {
-        padding: 60px 0;
-    }
-
-    .tour-buttons {
+    /* .pu-glance-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 240px);
         gap: 15px;
     }
 
-    .tour-btn {
-        padding: 12px 24px;
+    .pu-glance-card:nth-child(1) {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+
+    .pu-glance-card:nth-child(2) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+
+    .pu-glance-card:nth-child(3) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    .pu-glance-card:nth-child(4) {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+
+    .pu-glance-card:nth-child(5) {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    } */
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .card-number {
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+
+    .card-number-sub {
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+
+    .card-title {
+        font-size: 25px;
+        margin-bottom: 3px;
+    }
+
+    .card-title-large {
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+
+    .card-desc {
+        font-size: 15px;
+    }
+
+    /* virtual tour */
+
+    .pu-tour-header {
+        padding: 60px 0 0 0;
+    }
+
+    .tour-icon img {
+        width: 80px;
+        height: 80px;
+    }
+
+
+    /* pillars */
+    .pu-four-pillars {
+        padding: 60px 0 4px 0;
+    }
+
+    .pu-pillars-header {
+        margin-bottom: 12px;
+    }
+
+    .pu-pillars-title {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .pu-pillars-subtitle {
         font-size: 14px;
+        max-width: 85%;
+        margin-bottom: 30px;
     }
 
-    .slide img {
-        height: 300px;
+    .pu-pillars-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        gap: 8px;
+        height: auto;
     }
 
-    .slider-btn {
-        width: 50px;
-        height: 50px;
+    .pillar-content {
+        padding: 4px;
     }
 
-    .prev-btn {
-        left: 15px;
+    /* .pillar-title {
+        font-size: 10px;
+        padding: 2px 2px;
+    } */
+
+    .pillar-description {
+        font-size: 8px;
     }
 
-    .next-btn {
-        right: 15px;
+    .pillar-features {
+        font-size: 9px;
     }
 
-    .slider-btn i {
+    /* .pu-pillar-card {
+        min-height: 140px;
+    } */
+
+    .pu-pillar-card:hover .pillar-details {
+        opacity: 1;
+        max-height: 300px;
+    }
+
+
+    /* study in parul university */
+
+    .nh-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        row-gap: 50px;
+    }
+
+    .nh-card-text {
+        width: 90%;
+        font-size: 15px;
+    }
+
+    .nh-card-title {
+        font-size: 25px;
+    }
+
+    .nh-subtitle {
+        font-size: 18px;
+    }
+
+    .nh-badge {
+        width: 75px;
+    }
+
+
+    /* footer */
+    .pu-next-home {
+        padding: 30px 0 70px;
+    }
+
+    .pu-cta-btn {
+        width: 100%;
+        padding: 20px;
+        font-size: 18px;
+    }
+
+}
+
+
+@media (max-width : 375px) {
+    .pu-cta-text {
+        display: none;
+    }
+
+    .pu-topbar-inner {
+        grid-template-columns: 2fr auto;
+    }
+
+    .brand-logo {
+        height: 38px;
+    }
+
+    .pu-cta {
+        padding: 7px;
+        border-radius: 50%;
+    }
+
+    .pu-cta-icon {
+        width: 25px;
+        height: 25px;
         font-size: 20px;
     }
 
-    .progress-bar {
-        width: 150px;
+    /* header */
+    .pu-hero {
+        padding-bottom: 18px;
+    }
+
+    .pu-hero-content {
+        padding: 12px 10px 22px 10px;
+    }
+
+    .pu-hero-title {
+        font-size: 32px;
+        margin: 5px 0 16px;
+    }
+
+    .pu-hero-pills {
+        /* max-width: 270px; */
+        gap: 12px;
+        margin: 10px 0 15px;
+    }
+
+    .pill {
+        padding: 12px 35px;
+        font-size: 17px;
+    }
+
+    .pu-hero-desc {
+        font-size: 15px;
+    }
+
+
+    /* campus stats */
+
+    .pu-stats-section {
+        padding: 35px 0;
+    }
+
+    .pu-stats-title {
+        font-size: 25px;
+        margin-bottom: 25px;
+    }
+
+    .pu-stats-image {
+        margin-bottom: 12px;
+        border-radius: 8px;
+    }
+
+    .pu-stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 0;
+    }
+
+    .pu-stat-item {
+        padding: 10px 8px;
+        border-radius: 10px;
+        height: 100px;
+    }
+
+    .stat-number {
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+
+    .stat-label {
+        font-size: 10px;
+        line-height: 1.1;
+    }
+
+    .pu-stats-image::after {
+        height: 0px;
+    }
+
+
+    /* pu glance */
+
+    .pu-campus-glance {
+        padding: 20px 0;
+    }
+
+    .pu-glance-header {
+        margin-bottom: 25px;
+    }
+
+    .pu-glance-title {
+        font-size: 29px;
+        margin-bottom: 8px;
+    }
+
+    .pu-glance-subtitle {
+        font-size: 12px;
+        /* max-width: 280px; */
+    }
+
+    .pu-glance-grid {
+        grid-template-rows: repeat(5, 140px);
+        gap: 10px;
+    }
+
+    .card-content {
+        padding: 12px;
+    }
+
+    .card-number {
+        font-size: 25px;
+        margin-bottom: 2px;
+    }
+
+    .card-number-sub {
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+
+    .card-title {
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+
+    .card-title-large {
+        font-size: 20px;
+        margin-bottom: 3px;
+    }
+
+    .card-desc {
+        font-size: 12px;
+    }
+
+
+    /* virtual tour */
+
+    .pu-tour-header {
+        padding: 50px 0 0 0;
+    }
+
+    .tour-icon img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .pu-tour-title {
+        font-size: 30px;
+    }
+
+    /* pillars */
+
+    .pu-pillars-title {
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+
+    .pu-pillars-subtitle {
+        font-size: 12px;
+        /* max-width: 120px; */
+    }
+
+    /* .pillar-title {
+        font-size: 8px;
+        padding: 1px 1px;
+    } */
+
+    .pillar-features {
+        font-size: 8px;
+    }
+
+    .pu-pillar-card:hover .pillar-details {
+        opacity: 1;
+        max-height: 200px;
+        /* Adjust based on your content */
+    }
+
+
+    /* study in parul university */
+
+    .nh-subtitle {
+        font-size: 15px;
     }
 }
 
-@media (max-width: 480px) {
-    .tour-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .tour-btn {
-        width: 200px;
-    }
-}
+/* new style */
