@@ -960,12 +960,12 @@
     }
 
     .pu-topbar-inner {
-        height: 55px;
+        height: 60px;
         gap: 4px;
     }
 
     .brand-logo {
-        height: 1.8rem;
+        height: 1.9rem;
     }
 
     .pu-nav {
@@ -974,7 +974,7 @@
 
     .pu-cta {
         font-size: 16px;
-        padding: 5px 8px;
+        padding: 10px;
         min-width: 35px;
     }
 
@@ -1269,6 +1269,10 @@
 @media (max-width : 375px) {
     .pu-cta-text {
         display: none;
+    }
+
+     .pu-topbar-inner {
+        height: 60px;
     }
 
     .pu-topbar-inner {

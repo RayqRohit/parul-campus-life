@@ -1942,7 +1942,7 @@ body {
 
 /* ---------- FAQ section ---------- */
 .pu-faq {
-    padding: 30px 0 90px;
+    padding: 30px 0 50px;
     background: #fff;
 }
 
@@ -2178,4 +2178,59 @@ body {
     opacity: .8;
     pointer-events: none;
     z-index: 0;
+}
+
+
+/* to the top */
+
+/* Back-to-top floating button */
+.pu-backtop {
+    position: fixed;
+    right: 20px;
+    bottom: calc(clamp(12px, 2vw, 20px) + env(safe-area-inset-bottom, 0px));
+    z-index: 1200;
+    /* above content / bottom bars */
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 999px;
+    background: #E90712;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .18), inset 0 1px 0 rgba(255, 255, 255, .25);
+    cursor: pointer;
+
+    /* hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: transform .25s ease, opacity .25s ease, visibility 0s linear .25s;
+}
+
+.pu-backtop i {
+    font-size: 35px;
+    line-height: 1;
+}
+
+.pu-backtop:hover {
+    filter: brightness(1.07);
+    transform: translateY(0) scale(1.05);
+}
+
+/* visible state */
+.pu-backtop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: transform .25s ease, opacity .25s ease, visibility 0s;
+}
+
+/* If you have a bottom nav on small screens, nudge it up a bit */
+@media (max-width: 991.98px) {
+    .pu-backtop {
+        width: 44px;
+        height: 44px;
+        bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+    }
 }

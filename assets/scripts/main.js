@@ -261,5 +261,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+// back to top button
 
+(() => {
+  const btn = document.getElementById('pu-backtop');
+  if (!btn) return;
 
+  const SHOW_AT = 250; // px scrolled before showing the button
+  let ticking = false;
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      if (window.scrollY > SHOW_AT) btn.classList.add('show');
+      else btn.classList.remove('show');
+      ticking = false;
+    });
+  }
+
+  // smooth scroll to top (respects reduced motion)
+  btn.addEventListener('click', () => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+  });
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
