@@ -2231,6 +2231,6 @@ body {
     .pu-backtop {
         width: 44px;
         height: 44px;
-        bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+        bottom: calc(30px + env(safe-area-inset-bottom, 0px));
     }
 }
