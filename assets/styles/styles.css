@@ -1457,7 +1457,7 @@ body {
     }
 }
 
-@media (max-width:375px) {
+@media (max-width:375px) {  
     .virtual-tour {
         height: 40vh;
         max-height: 350px;
