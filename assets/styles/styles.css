@@ -22,7 +22,8 @@
     src: url('../fonts/GeneralSans-Semibold.ttf') format('truetype');
 }
 
-button,a{
+button,
+a {
     outline: none;
     border: none;
 }
@@ -50,7 +51,8 @@ button,a{
 .pu-topbar-inner {
     height: 65px;
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    /* grid-template-columns: auto 1fr auto; */
+    grid-template-columns: auto 1fr;
     align-items: center;
     gap: 16px;
 }
@@ -909,16 +911,16 @@ body {
 /* ========== Responsive Heights (unchanged) ========== */
 @media (min-width:1400px) {
     .virtual-tour {
-        height: 95vh;
-        min-height: 600px;
+        height: 100vh;
+        /* min-height: 600px; */
     }
 
     .top-ellipse {
-        top: -57%;
+        top: -52%;
     }
 
     .bottom-ellipse {
-        bottom: -55%;
+        bottom: -52%;
     }
 }
 
@@ -1032,11 +1034,11 @@ body {
     }
 }
 
-@media (orientation:landscape) and (max-height:600px) {
+/* @media (orientation:landscape) and (max-height:600px) {
     .virtual-tour {
         height: 85vh;
     }
-}
+} */
 
 /* ===================================================== */
 /* ============== DRAG-TO-SCROLL CAROUSEL ============== */

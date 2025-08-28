@@ -183,7 +183,7 @@
     .pillar-title {
         font-size: 26px;
         padding: 14px 24px;
-        
+
     }
 
     .pillar-description {
@@ -1510,18 +1510,18 @@
         font-size: 15px;
     }
 
-  
-    .pillar-content{
+
+    .pillar-content {
         padding: 10px;
     }
 
-    .pillar-title{
+    .pillar-title {
         width: 100%;
         text-align: center;
         margin-bottom: 15px;
     }
 
-     .pu-pillar-card:hover .pillar-details {
+    .pu-pillar-card:hover .pillar-details {
         opacity: 1;
         max-height: 299px;
     }
