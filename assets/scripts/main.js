@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     rafId = requestAnimationFrame(tick);
   }
-  const start = () => { if (rafId == null) rafId = requestAnimationFrame(tick); };
-  const stop = () => { if (rafId != null) { cancelAnimationFrame(rafId); rafId = null; } };
+  // const start = () => { if (rafId == null) rafId = requestAnimationFrame(tick); };
+  // const stop = () => { if (rafId != null) { cancelAnimationFrame(rafId); rafId = null; } };
 
   /* pause helper (only used after drag) */
   const pause = (() => {

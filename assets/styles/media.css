@@ -1,4 +1,10 @@
 /* ================= Desktop Large ================= */
+@media (min-width : 1400px) {
+    .container-new {
+        max-width: 1450px;
+    }
+}
+
 @media (min-width: 1200px) and (max-width: 1399.98px) {
     .pu-topbar-inner {
         height: 70px;
