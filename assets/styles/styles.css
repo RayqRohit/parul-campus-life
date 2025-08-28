@@ -171,6 +171,7 @@ a {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-position: center 45%;
 
 }
 
@@ -211,8 +212,8 @@ a {
     flex-direction: column;
     gap: 16px;
     flex-wrap: wrap;
-    margin: 14px 0 18px;
-    max-width: 300px;
+    margin: 115px 0 18px;
+    max-width: 350px;
 }
 
 .pill {
@@ -910,7 +911,7 @@ body {
 
 /* ========== Responsive Heights (unchanged) ========== */
 
-@media (min-width : 1920px){
+@media (min-width : 1920px) {
     .virtual-tour {
         height: 100vh;
         /* min-height: 600px; */
@@ -1238,7 +1239,7 @@ body {
 @media (min-width:1200px) and (max-width:1300px) {
 
     .virtual-tour {
-        height: 95vh;
+        height: 100vh;
         /* min-height: 600px; */
     }
 
@@ -1457,7 +1458,7 @@ body {
     }
 }
 
-@media (max-width:375px) {  
+@media (max-width:375px) {
     .virtual-tour {
         height: 40vh;
         max-height: 350px;
