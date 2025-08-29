@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const statsCards = document.querySelectorAll('.pu-stat-item');
   const campusImage = document.querySelector('#campusImage img');
-  const defaultImage = './assets/images/campus-1.jpg'; // Use your actual default image path
+  const defaultImage = './assets/images/campus-1.png'; 
   const defaultAlt = 'Green campus areas and gardens';
 
   statsCards.forEach(card => {
