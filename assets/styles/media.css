@@ -4,7 +4,19 @@
         max-width: 1470px;
     }
 
-   
+
+    .pu-hero-card {
+        height: 95vh;
+    }
+
+    .pu-hero-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-around;
+    }
+
+
 }
 
 @media (min-width: 1200px) and (max-width: 1399.98px) {
@@ -280,7 +292,7 @@
         justify-content: space-around;
     }
 
- 
+
 
 
     /* campus stats */
