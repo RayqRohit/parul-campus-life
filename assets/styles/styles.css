@@ -622,6 +622,7 @@ a {
     color: #000;
     line-height: 1.6;
     max-width: 600px;
+    /* width: 600px; */
     margin: 0 auto;
 }
 
@@ -768,6 +769,13 @@ a {
 /* Dark Overlay - E-Bike Mobility */
 .overlay-dark {
     background: radial-gradient(173.14% 71.2% at 66.54% 24.2%, rgba(0, 0, 0, 0.00) 33.48%, #000 100%);
+}
+
+
+@media (min-width : 1500px) {
+    .pu-glance-subtitle {
+        max-width: 680px;
+    }
 }
 
 
@@ -1663,14 +1671,10 @@ body {
 }
 
 
-
-
-
-
 /* ========== Four Pillars of Campus Life Section ========== */
 /* ========== Four Pillars of Campus Life Section ========== */
 .pu-four-pillars {
-    padding: 10px 0 50px 0;
+    padding: 50px 0 50px 0;
     position: relative;
     z-index: 1;
 }
