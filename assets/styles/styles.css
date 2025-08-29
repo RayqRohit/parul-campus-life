@@ -2790,7 +2790,7 @@ body {
     height: 20px;
     transform: skewX(-45deg);
     background:
-        linear-gradient(#f00713 0 0) left -30px top 0/30px 20px no-repeat #ccc;
+        linear-gradient(#0b57cf 0 0) left -30px top 0/30px 20px no-repeat #ccc;
     animation: l3 1s infinite linear;
 }
 
