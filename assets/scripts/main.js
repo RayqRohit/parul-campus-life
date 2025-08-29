@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (hoverImage) {
       card.addEventListener('mouseenter', function () {
         // Fade out
-        campusImage.style.opacity = '0.2';
+        campusImage.style.opacity = '0.3';
         setTimeout(() => {
           // Change image and fade in
           campusImage.src = hoverImage;
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
 
       card.addEventListener('mouseleave', function () {
-        campusImage.style.opacity = '0.2';
+        campusImage.style.opacity = '0.3';
         setTimeout(() => {
           campusImage.src = defaultImage;
           campusImage.alt = defaultAlt;
