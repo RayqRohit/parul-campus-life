@@ -1,42 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
   const statsCards = document.querySelectorAll('.pu-stat-item');
   const campusImage = document.querySelector('#campusImage img');
-  const defaultImage = './assets/images/campus-1.png'; // Your default image
-  const defaultAlt = 'Beautiful green campus with walkways and trees';
+  const defaultImage = './assets/images/campus-1.jpg'; // Use your actual default image path
+  const defaultAlt = 'Green campus areas and gardens';
 
-  // Preload images for smooth transitions
-  const preloadImages = [];
-
-  statsCards.forEach(card => {
-    const imageSrc = card.dataset.image;
-    if (imageSrc) {
-      const img = new Image();
-      img.src = imageSrc;
-      preloadImages.push(img);
-    }
-  });
-
-  // Add hover event listeners
   statsCards.forEach(card => {
     const hoverImage = card.dataset.image;
     const hoverAlt = card.dataset.alt;
-
     if (hoverImage) {
-      // Mouse enter event
       card.addEventListener('mouseenter', function () {
-        campusImage.style.opacity = '0';
-
+        // Fade out
+        campusImage.style.opacity = '0.2';
         setTimeout(() => {
+          // Change image and fade in
           campusImage.src = hoverImage;
           campusImage.alt = hoverAlt;
           campusImage.style.opacity = '1';
-        }, 200); // Half of the transition time
+        }, 200);
       });
 
-      // Mouse leave event
       card.addEventListener('mouseleave', function () {
-        campusImage.style.opacity = '0';
-
+        campusImage.style.opacity = '0.2';
         setTimeout(() => {
           campusImage.src = defaultImage;
           campusImage.alt = defaultAlt;
@@ -46,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
 
 
 // slider functionality
