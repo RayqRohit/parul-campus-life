@@ -280,6 +280,8 @@
         justify-content: space-around;
     }
 
+ 
+
 
     /* campus stats */
 
@@ -700,9 +702,7 @@
         transform: translateY(60px);
     }
 
-    .pu-hero-card {
-        height: auto;
-    }
+ 
 
 }
 
