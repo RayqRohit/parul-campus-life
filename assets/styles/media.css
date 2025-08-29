@@ -698,6 +698,10 @@
         transform: translateY(60px);
     }
 
+    .pu-hero-card{
+        height: auto;
+    }
+
 }
 
 /* ================= Mobile Large ================= */
