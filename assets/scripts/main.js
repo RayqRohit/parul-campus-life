@@ -289,3 +289,32 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
+
+
+
+// hiding the navbar
+
+document.addEventListener('DOMContentLoaded', function () {
+  const navbar = document.querySelector('.pu-topbar');
+  const virtualTour = document.querySelector('.pu-virtual-tour'); // Must match the Virtual Tour section only
+
+  if (!navbar || !virtualTour) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        navbar.classList.add('hidden-nav');   // Hide navbar
+      } else {
+        navbar.classList.remove('hidden-nav'); // Show navbar
+      }
+    },
+    {
+      root: null,
+      threshold: 0 // triggers as soon as any part of the virtual tour enters/exits
+    }
+  );
+
+  observer.observe(virtualTour);
+});
+
+
