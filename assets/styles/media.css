@@ -53,13 +53,19 @@
 
     .pill {
         padding: 12px 52px;
-        font-size: 19px;
+        font-size: 20px;
     }
 
     .pu-hero-desc {
         font-size: 21px;
     }
 
+    .pu-hero-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-around;
+    }
 
     /* campus stats */
 
@@ -263,6 +269,15 @@
     .pu-hero-desc {
         font-size: 23px;
     }
+
+
+    .pu-hero-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-around;
+    }
+
 
     /* campus stats */
 
@@ -470,7 +485,7 @@
     }
 
     .pu-hero-title {
-        font-size: 48px;
+        font-size: 58px;
         margin: 8px 0 22px;
     }
 
@@ -488,6 +503,14 @@
     .pu-hero-desc {
         font-size: 18px;
     }
+
+    .pu-hero-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+    }
+
 
     /* campus stats */
 
@@ -733,7 +756,7 @@
     }
 
     .pu-hero-title {
-        font-size: 46px;
+        font-size: 50px;
         margin: 7px 0 20px;
     }
 
@@ -756,7 +779,14 @@
     }
 
     .pu-hero-bg {
-        background-position: center 20%;
+        background-position: 47% 20%;
+    }
+
+    .pu-hero-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
     }
 
 
@@ -980,6 +1010,12 @@
     }
 
 
+
+    /* pu stats */
+
+
+
+
 }
 
 /* ================= Mobile Small ================= */
@@ -1029,7 +1065,7 @@
     }
 
     .pu-hero-content {
-        padding: 35px 0 36px;
+        padding: 20px 0 10px;
         padding-inline: 15px;
     }
 
@@ -1040,8 +1076,8 @@
 
     .pu-hero-pills {
         max-width: 100%;
-        gap: 14px;
-        margin: 12px 0 16px;
+        gap: 10px;
+        margin: 12px 0 10px;
     }
 
     .pill {
@@ -1051,6 +1087,17 @@
 
     .pu-hero-desc {
         font-size: 17px;
+    }
+
+    .pu-hero-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    .pu-hero-card {
+        height: 70vh;
     }
 
 
@@ -1305,6 +1352,14 @@
         font-size: 18px;
     }
 
+
+    /* pu stats */
+
+    /* .study-stats .stat {
+        display: flex;
+        gap: 20px;
+    } */
+
 }
 
 /* @media (max-width : 391px){
@@ -1337,6 +1392,36 @@
 } */
 
 
+@media (max-width : 395px) {
+    .pu-cta-text {
+        display: none;
+    }
+
+    .pu-topbar-inner {
+        height: 60px;
+    }
+
+    .pu-topbar-inner {
+        grid-template-columns: 2fr auto;
+    }
+
+    .brand-logo {
+        height: 38px;
+    }
+
+    .pu-cta {
+        padding: 7px;
+        border-radius: 50%;
+    }
+
+    .pu-cta-icon {
+        width: 25px;
+        height: 25px;
+        font-size: 20px;
+    }
+}
+
+
 @media (max-width : 375px) {
     .pu-cta-text {
         display: none;
@@ -1366,12 +1451,19 @@
     }
 
     /* header */
+
+
+    .pu-hero-card {
+        height: 55vh;
+    }
+
+
     .pu-hero {
         padding-bottom: 18px;
     }
 
     .pu-hero-content {
-        padding: 12px 10px 22px 10px;
+        padding: 12px 10px 15px 10px;
     }
 
     .pu-hero-title {
@@ -1381,17 +1473,22 @@
 
     .pu-hero-pills {
         /* max-width: 270px; */
-        gap: 12px;
-        margin: 10px 0 15px;
+        gap: 9px;
+        margin: 0;
+
     }
 
     .pill {
         padding: 12px 35px;
-        font-size: 17px;
+        font-size: 15px;
     }
 
     .pu-hero-desc {
         font-size: 15px;
+    }
+
+    .pu-hero-bg{
+        background-position: 47% 45%;
     }
 
 
@@ -1549,8 +1646,6 @@
         opacity: 1;
         transform: translateY(50px);
     }
-
-
 
     /* study in parul university */
 
