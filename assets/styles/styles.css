@@ -2777,6 +2777,8 @@ body {
     height: 100vh;
     background: #fff;
     display: flex;
+    flex-direction: column;
+    /* stack logo and loader vertically */
     align-items: center;
     justify-content: center;
     transition: opacity 0.5s ease;
@@ -2790,12 +2792,20 @@ body {
 
 /* Loader bar style */
 .loader {
-    width: 120px;
-    height: 20px;
+    width: 180px;
+    height: 15px;
     transform: skewX(-45deg);
     background:
         linear-gradient(#f00713 0 0) left -30px top 0/30px 20px no-repeat #ccc;
     animation: l3 1s infinite linear;
+}
+
+.loader-logo {
+    width: 30%;
+    /* or whatever size fits */
+    height: auto;
+    margin-bottom: 35px;
+    /* space between logo and loader */
 }
 
 @keyframes l3 {

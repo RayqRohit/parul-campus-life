@@ -1034,6 +1034,10 @@
     /* pu stats */
 
 
+    .loader-logo {
+        width: 50%;
+    }
+
 
 
 }
@@ -1385,6 +1389,11 @@
         gap: 20px;
     } */
 
+     .loader-logo {
+        width: 70%;
+    }
+
+
 }
 
 /* @media (max-width : 391px){
@@ -1676,6 +1685,12 @@
 
     .nh-subtitle {
         font-size: 15px;
+    }
+
+    /* loader part */
+
+     .loader-logo {
+        width: 70%;
     }
 }
 
