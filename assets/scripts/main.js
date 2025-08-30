@@ -1,35 +1,39 @@
 document.addEventListener('DOMContentLoaded', function () {
   const statsCards = document.querySelectorAll('.pu-stat-item');
   const campusImage = document.querySelector('#campusImage img');
-  const defaultImage = './assets/images/campus-1.jpg'; 
+  const defaultImage = './assets/images/campus-1.jpg';
   const defaultAlt = 'Green campus areas and gardens';
 
   statsCards.forEach(card => {
     const hoverImage = card.dataset.image;
     const hoverAlt = card.dataset.alt;
+
     if (hoverImage) {
       card.addEventListener('mouseenter', function () {
-        // Fade out
+        // Instantly swap the image and alt
+        campusImage.src = hoverImage;
+        campusImage.alt = hoverAlt;
+        // Fade in effect
         campusImage.style.opacity = '0.3';
         setTimeout(() => {
-          // Change image and fade in
-          campusImage.src = hoverImage;
-          campusImage.alt = hoverAlt;
           campusImage.style.opacity = '1';
-        }, 200);
+        }, 50); // Small delay for smoothness
       });
 
       card.addEventListener('mouseleave', function () {
+        // Instantly revert to default image and alt
+        campusImage.src = defaultImage;
+        campusImage.alt = defaultAlt;
+        // Fade in effect
         campusImage.style.opacity = '0.3';
         setTimeout(() => {
-          campusImage.src = defaultImage;
-          campusImage.alt = defaultAlt;
           campusImage.style.opacity = '1';
-        }, 200);
+        }, 50); // Small delay for smoothness
       });
     }
   });
 });
+
 
 
 
