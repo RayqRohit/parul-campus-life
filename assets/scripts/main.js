@@ -10,25 +10,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (hoverImage) {
       card.addEventListener('mouseenter', function () {
-        // Instantly swap the image and alt
         campusImage.src = hoverImage;
         campusImage.alt = hoverAlt;
-        // Fade in effect
         campusImage.style.opacity = '0.3';
         setTimeout(() => {
           campusImage.style.opacity = '1';
-        }, 50); // Small delay for smoothness
+        }, 50);
       });
 
       card.addEventListener('mouseleave', function () {
-        // Instantly revert to default image and alt
         campusImage.src = defaultImage;
         campusImage.alt = defaultAlt;
-        // Fade in effect
+
         campusImage.style.opacity = '0.3';
         setTimeout(() => {
           campusImage.style.opacity = '1';
-        }, 50); // Small delay for smoothness
+        }, 50);
       });
     }
   });
