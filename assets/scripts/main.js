@@ -4,6 +4,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const defaultImage = './assets/images/campus-1.jpg';
   const defaultAlt = 'Green campus areas and gardens';
 
+  // Preload hover images
+  statsCards.forEach(card => {
+    const hoverImage = card.dataset.image;
+    if (hoverImage) {
+      const img = new Image();
+      img.src = hoverImage;
+    }
+  });
+
   statsCards.forEach(card => {
     const hoverImage = card.dataset.image;
     const hoverAlt = card.dataset.alt;
@@ -21,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
       card.addEventListener('mouseleave', function () {
         campusImage.src = defaultImage;
         campusImage.alt = defaultAlt;
-
         campusImage.style.opacity = '0.3';
         setTimeout(() => {
           campusImage.style.opacity = '1';
@@ -30,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-
 
 
 
