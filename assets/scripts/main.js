@@ -416,3 +416,9 @@ document.addEventListener('DOMContentLoaded', function () {
   active = Math.floor(visibleCards().length / 2);
   layout();
 })();
+
+
+
+// loader part
+
+
