@@ -311,3 +311,108 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+// pillars code
+
+(() => {
+  const root = document.querySelector('.pu-coverflow');
+  const deck = root.querySelector('.cf-deck');
+  const allCards = [...deck.querySelectorAll('.cf-card')];
+  const prevB = root.querySelector('.cf-prev');
+  const nextB = root.querySelector('.cf-next');
+
+  // Tabs
+  const tabs = document.querySelectorAll('.pu-pillar-tabs .chip');
+  let currentFilter =
+    document.querySelector('.pu-pillar-tabs .chip.active')?.dataset.filter || 'community';
+
+  // Center start
+  let active = 0;
+
+  /* --- helpers --- */
+  const visibleCards = () => allCards.filter(c => c.dataset.cat === currentFilter);
+
+  function updateTabs() {
+    tabs.forEach(btn => {
+      const isActive = btn.dataset.filter === currentFilter;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+  }
+
+  /* --- layout (coverflow + dynamic height) --- */
+  function layout() {
+    const space = 100;   // horizontal spacing
+    const tilt = -18;   // deg per step
+    const shrink = 0.08;  // width scale/step
+    const blurP = 0.5;   // px blur/step
+    const shadeP = 0.18;  // overlay/step
+
+    // height behaviour (center tallest)
+    const deckH = deck.clientHeight;
+    const dropPerStep = 0.14;  // more = sides shorter
+    const minRatio = 0.65;  // min edge height (0..1)
+
+    // show only current category
+    const list = visibleCards();
+    const n = list.length;
+    allCards.forEach(c => { c.style.display = (c.dataset.cat === currentFilter) ? 'block' : 'none'; });
+
+    // safety: if no slides for a filter, bail
+    if (!n) return;
+
+    // circular coverflow math
+    list.forEach((card, i) => {
+      let d = i - active;
+      if (d > n / 2) d -= n;
+      if (d < -n / 2) d += n;
+
+      const a = Math.abs(d);
+
+      card.style.setProperty('--x', `${d * space}px`);
+      card.style.setProperty('--ry', `${d * tilt}deg`);
+      card.style.setProperty('--scale', `${Math.max(0.72, 1 - a * shrink)}`);
+      card.style.setProperty('--z', `${50 - a}`);
+      card.style.setProperty('--blur', `${a * blurP}px`);
+      card.style.setProperty('--dim', `${1 - Math.min(a * 0.12, 0.55)}`);
+      card.style.setProperty('--shade', `${Math.min(a * shadeP, .65)}`);
+
+      // height from center (if you don't want this, remove these 2 lines)
+      const ratio = Math.max(1 - a * dropPerStep, minRatio);
+      card.style.setProperty('--card-h', `${deckH * ratio}px`);
+
+      card.classList.toggle('is-center', d === 0);
+      card.setAttribute('aria-hidden', d !== 0);
+    });
+  }
+
+  /* --- controls --- */
+  function prev() { const n = visibleCards().length; active = (active - 1 + n) % n; layout(); }
+  function next() { const n = visibleCards().length; active = (active + 1) % n; layout(); }
+
+  prevB.addEventListener('click', prev);
+  nextB.addEventListener('click', next);
+
+  deck.addEventListener('click', (e) => {
+    const card = e.target.closest('.cf-card'); if (!card) return;
+    const list = visibleCards(); const idx = list.indexOf(card);
+    if (idx >= 0) { active = idx; layout(); }
+  });
+
+  // Tabs -> filter change
+  tabs.forEach(btn => btn.addEventListener('click', () => {
+    currentFilter = btn.dataset.filter;
+    updateTabs();
+    active = Math.floor(visibleCards().length / 2);  
+    layout();
+  }));
+
+  // keyboard + resize
+  root.tabIndex = 0;
+  root.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') prev(); if (e.key === 'ArrowRight') next(); });
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(layout, 120); });
+
+  // init
+  updateTabs();
+  active = Math.floor(visibleCards().length / 2);
+  layout();
+})();

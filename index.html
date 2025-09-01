@@ -8,6 +8,8 @@
 
     <!-- remix icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- swiper js -->
+
 
     <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
 
@@ -263,107 +265,90 @@
             </div>
 
             <!-- Pillars Grid -->
-            <div class="pu-pillars-grid">
-                <!-- Community Living -->
-                <div class="pu-pillar-card pillar-top-left">
-                    <div class="pillar-image">
-                        <img src="./assets/images/pillars/p-1.jpg" alt="Community Living">
-                    </div>
-                    <div class="pillar-overlay"></div>
-                    <div class="pillar-content">
-                        <h3 class="pillar-title blue-pill">Community Living</h3>
-                        <div class="pillar-details">
-                            <p class="pillar-description">Connect, learn, and grow in our vibrant community spaces</p>
-                            <ul class="pillar-features">
-                                <li>Modern residential facilities with <strong>AC</strong> and <strong>Wi-Fi</strong>
-                                </li>
-                                <li>Diverse <strong>food courts</strong> with international cuisine</li>
-                                <li><strong>Campus tours</strong> for new international students</li>
-                                <li><strong>24/7 medical facilities</strong> and <strong>healthcare support</strong>
-                                </li>
-                                <li><strong>Banking services</strong> and <strong>shopping conveniences</strong></li>
-                                <li>Sustainable transportation facilities across a <strong>200+ acre campus</strong>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cultural Experience -->
-                <div class="pu-pillar-card pillar-top-right">
-                    <div class="pillar-image">
-                        <img src="./assets/images/pillars/p-2-.jpg" alt="Cultural Experience">
-                    </div>
-                    <div class="pillar-overlay"></div>
-                    <div class="pillar-content">
-                        <h3 class="pillar-title red-pill">Cultural Experience</h3>
-                        <div class="pillar-details">
-                            <p class="pillar-description">Express yourself and celebrate diverse cultures through our
-                                comprehensive arts programs</p>
-                            <ul class="pillar-features">
-                                <li>Regular <strong>concerts</strong> and <strong>cultural events</strong></li>
-                                <li>Open-air <strong>theatre</strong> for performances</li>
-                                <li>International cultural <strong>exchange programs</strong></li>
-                                <li>Student-led <strong>extracurricular activities</strong></li>
-                                <li>Annual festivals celebrating <strong>global diversity</strong></li>
-                                <li><strong>Creative spaces</strong> for artistic expression</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sports & Wellness -->
-                <div class="pu-pillar-card pillar-bottom-left">
-                    <div class="pillar-image">
-                        <img src="./assets/images/pillars/p-3.jpg" alt="Sports & Wellness">
-                    </div>
-                    <div class="pillar-overlay"></div>
-                    <div class="pillar-content">
-                        <h3 class="pillar-title green-pill">Sports & Wellness</h3>
-                        <div class="pillar-details">
-                            <p class="pillar-description">Stay active and healthy with world-class facilities
-                                and unique experiences</p>
-                            <ul class="pillar-features">
-                                <li><strong>Gymnasium</strong> and fitness center</li>
-                                <li>Olympic-size <strong>swimming pool</strong></li>
-                                <li><strong>Horse riding</strong> facilities for adventure enthusiasts</li>
-                                <li>Football, cricket, and hockey <strong>fields</strong></li>
-                                <li><strong>Indoor courts:</strong> badminton, volleyball, basketball</li>
-                                <li><strong>Yoga</strong> rooms and <strong>wellness centers</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Learning & Innovation -->
-                <div class="pu-pillar-card pillar-bottom-right">
-                    <div class="pillar-image">
-                        <img src="./assets/images/pillars/p-4-.jpg" alt="Learning & Innovation">
-                    </div>
-                    <div class="pillar-overlay"></div>
-                    <div class="pillar-content">
-                        <h3 class="pillar-title orange-pill">Learning & Innovation</h3>
-                        <div class="pillar-details">
-                            <p class="pillar-description">Combining academics and ambitions, the world becomes your
-                                classroom.
-                            </p>
-                            <ul class="pillar-features">
-                                <li><strong>250+ programs</strong> across engineering, medicine, arts, business, design,
-                                    and more</li>
-                                <li>Advanced <strong>labs, simulation</strong> centres, design <strong>studios</strong>,
-                                    and <strong>innovation hubs</strong></li>
-                                <li><strong>Industry-aligned curriculum</strong> with <strong>global faculty</strong>
-                                    and guest experts</li>
-                                <li><strong>Research</strong> opportunities and <strong>incubation support</strong> for
-                                    startups</li>
-                                <li><strong>Flexible learning</strong> pathways that prepare you for global careers</li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
+            <!-- Pillar Tabs -->
+            <div class="pu-pillar-tabs" role="tablist" aria-label="Pillars">
+                <button class="chip chip-blue active" data-filter="community" role="tab" aria-selected="true">Community
+                    Living</button>
+                <button class="chip chip-red" data-filter="culture" role="tab" aria-selected="false">Cultural
+                    Experience</button>
+                <button class="chip chip-green" data-filter="sports" role="tab" aria-selected="false">Sports &amp;
+                    Wellness</button>
+                <button class="chip chip-orange" data-filter="learning" role="tab" aria-selected="false">Learning &amp;
+                    Innovation</button>
             </div>
-        </div>
+
+            <!-- Coverflow Slider -->
+            <!-- Coverflow Slider -->
+            <div class="pu-coverflow" aria-label="Campus Life gallery">
+                <div class="cf-deck" aria-live="polite">
+                    <!-- tag each card with a category -->
+
+                    <!-- community -->
+                    <article class="cf-card" data-cat="community"><img
+                            src="./assets/images/campus-life/Community_Living_1.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+                    <article class="cf-card" data-cat="community"><img
+                            src="./assets/images/campus-life/Community_Living_2.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+                    <article class="cf-card" data-cat="community"><img
+                            src="./assets/images/campus-life/Community_Living_3.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+                    <article class="cf-card" data-cat="community"><img
+                            src="./assets/images/campus-life/Community_Living_4.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+
+
+                    <!-- culture -->
+                    <article class="cf-card" data-cat="culture"><img
+                            src="./assets/images/campus-life/Cultural_Experience_1.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+                    <article class="cf-card" data-cat="culture"><img
+                            src="./assets/images/campus-life/Cultural_Experience_2.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+                    <article class="cf-card" data-cat="culture"><img
+                            src="./assets/images/campus-life/Cultural_Experience_3.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+                    <article class="cf-card" data-cat="culture"><img
+                            src="./assets/images/campus-life/Cultural_Experience_4.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+
+
+                    <!-- sports -->
+                    <article class="cf-card" data-cat="sports"><img
+                            src="./assets/images/campus-life/Sports&Wellness_1.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+                    <article class="cf-card" data-cat="sports"><img
+                            src="./assets/images/campus-life/Sports&Wellness_2.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+                    <article class="cf-card" data-cat="sports"><img
+                            src="./assets/images/campus-life/Sports&Wellness_3.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+                    <article class="cf-card" data-cat="sports"><img
+                            src="./assets/images/campus-life/Sports&Wellness_4.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+
+                    <!-- learning -->
+                    <article class="cf-card" data-cat="learning"><img
+                            src="./assets/images/campus-life/Learning&Innovation_1.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+                    <article class="cf-card" data-cat="learning"><img
+                            src="./assets/images/campus-life/Learning&Innovation_2.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+                    <article class="cf-card" data-cat="learning"><img
+                            src="./assets/images/campus-life/Learning&Innovation_3.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+                    <article class="cf-card" data-cat="learning"><img
+                            src="./assets/images/campus-life/Learning&Innovation_4.jpg" alt=""><span
+                            class="cf-shade"></span></article>
+                </div>
+
+                <!-- Arrows -->
+                <button class="cf-nav cf-prev" aria-label="Previous slide"><i class="ri-arrow-left-line"
+                        aria-hidden="true"></i></button>
+                <button class="cf-nav cf-next" aria-label="Next slide"><i class="ri-arrow-right-line"
+                        aria-hidden="true"></i></button>
+            </div>
+
     </section>
 
 
@@ -459,7 +444,7 @@
                     <img class="nh-badge" src="./assets/images/home/three.svg" alt="Taste of Home" loading="lazy">
                     <h3 class="nh-card-title">Taste of Home</h3>
                     <p class="nh-card-text">
-                        Multiple food courts serve international cuisine, allowing you to enjoy familiar flavors while
+                        Multiple food courts serve <strong>international cuisine</strong>, allowing you to enjoy familiar flavors while
                         exploring new ones.
                     </p>
                 </article>
@@ -488,7 +473,8 @@
                 <!-- Item 1 (default open) -->
                 <article class="faq-item open">
                     <button class="faq-question" id="q1" aria-expanded="true" aria-controls="a1">
-                        <span>What accommodation options are available for international students?</span>
+                        <span>What accommodation options are available for international students?
+                        </span>
                         <!-- arrow svg -->
                         <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M5 12h12m0 0-5-5m5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"
@@ -496,11 +482,9 @@
                         </svg>
                     </button>
                     <div class="faq-answer" id="a1" role="region" aria-labelledby="q1">
-                        <p>
-                            We offer modern residential facilities with AC and Wi-Fi in our on-campus housing that
-                            accommodates 27,000+ students. All rooms come with essential amenities, and you’ll be part
-                            of a
-                            diverse community. Our 24/7 security and medical facilities ensure your safety and
+                        <p>We offer modern residential facilities with AC and Wi-Fi in our on-campus housing that
+                            accommodates 27,000+ students. All rooms come with essential amenities, and you'll be part
+                            of a diverse community. Our 24/7 security and medical facilities ensure your safety and
                             well-being.
                         </p>
                     </div>
@@ -517,8 +501,10 @@
                     </button>
                     <div class="faq-answer" id="a2" role="region" aria-labelledby="q2">
                         <p>
-                            Fees vary by room type and facilities. You can choose from shared or single occupancy rooms,
-                            with optional meal plans. Contact admissions for the current fee sheet.
+                            Campus accommodation includes housing, meal plans from our 15+ food courts, Wi-Fi, security,
+                            and access to all campus facilities, including the gym, swimming pool, and sports courts.
+                            For detailed pricing and payment options, please contact our admissions team or schedule a
+                            campus tour.
                         </p>
                     </div>
                 </article>
@@ -534,7 +520,9 @@
                     </button>
                     <div class="faq-answer" id="a3" role="region" aria-labelledby="q3">
                         <p>
-                            In-campus shuttle services, e-bikes, and walkable paths make commuting quick and convenient.
+                            Very easy! We provide eco-friendly e-bike mobility across our 200+ acre campus, along with
+                            sustainable transportation facilities. The campus is designed for convenient access to all
+                            facilities, from residential areas to academic buildings and recreational spaces.
                         </p>
                     </div>
                 </article>
@@ -550,8 +538,10 @@
                     </button>
                     <div class="faq-answer" id="a4" role="region" aria-labelledby="q4">
                         <p>
-                            Dedicated international cell, visa & FRRO guidance, language support, 24/7 medical help,
-                            and counseling services.
+                            We provide comprehensive support, including 24/7 medical facilities, campus tours for new
+                            international students, banking services, shopping conveniences, and dedicated student
+                            support staff. Our multicultural environment ensures you'll find community and belonging
+                            from day one.
                         </p>
                     </div>
                 </article>
@@ -567,8 +557,10 @@
                     </button>
                     <div class="faq-answer" id="a5" role="region" aria-labelledby="q5">
                         <p>
-                            After receiving your admission offer, apply through the student portal. Room allocation
-                            happens on a first-come, first-served basis.
+                            Campus accommodation applications are processed along with your university admission. Once
+                            you apply to Parul University, our admissions team will guide you through the housing
+                            allocation process. We recommend applying early to secure your preferred
+                            accommodation options.
                         </p>
                     </div>
                 </article>

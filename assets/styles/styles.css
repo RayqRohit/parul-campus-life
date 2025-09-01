@@ -1687,7 +1687,7 @@ body {
 /* Section Header */
 .pu-pillars-header {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 }
 
 .pu-pillars-title {
@@ -2818,3 +2818,314 @@ body {
         background-position: right -30px top 0
     }
 }
+
+
+
+/* new pillars code */
+/* --- Static Pill Row --- */
+.pu-pillar-chips {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 6px 0 10px;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16.237px 27.062px;
+    border-radius: 999px;
+    /* full pill */
+    color: #fff;
+    font: 800 16px/1 var(--font-bold, system-ui);
+    letter-spacing: .2px;
+    white-space: nowrap;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .12);
+    user-select: none;
+    border-radius: 16.237px;
+
+    font-size: 22px;
+}
+
+/* colors to match your screenshot */
+.chip-blue {
+    background: linear-gradient(135deg, #083055 0%, #0f4a7a 100%);
+}
+
+.chip-red {
+    background: linear-gradient(135deg, #a23a4f 0%, #bf5a6d 100%)
+}
+
+.chip-green {
+    background: linear-gradient(135deg, #2b5f12 0%, #346f16 100%)
+}
+
+.chip-orange {
+    background: linear-gradient(135deg, #a77236 0%, #bb8a47 100%)
+}
+
+/* subtle hover-only visual (still non-interactive) */
+.chip:hover {
+    filter: brightness(1.05)
+}
+
+/* responsive: center on small screens */
+@media (max-width: 992px) {
+    .pu-pillar-chips {
+        justify-content: center;
+        gap: 20px
+    }
+}
+
+@media (max-width: 576px) {
+    .chip {
+        font-weight: 700;
+        padding: 10px 18px
+    }
+}
+
+/* four pillars section */
+/* trends */
+
+
+
+/* ---------- Coverflow Slider ---------- */
+.pu-coverflow {
+    position: relative;
+    margin-top: 55px;
+    padding-inline: 0;
+    /* <- no left/right gap */
+}
+
+.cf-deck {
+    --deck-h: 560px;
+    /* master height */
+    position: relative;
+    height: var(--deck-h);
+    perspective: 1400px;
+    overflow: visible;
+}
+
+
+
+.cf-card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* ⬅️ center vertically */
+    width: min(980px, 94%);
+    height: var(--card-h, var(--deck-h));
+    /* dynamic height */
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, .35);
+    will-change: transform, filter, height;
+    transition:
+        transform .55s cubic-bezier(.2, .7, .2, 1),
+        filter .35s,
+        z-index .35s,
+        opacity .35s,
+        height .45s cubic-bezier(.2, .7, .2, 1);
+
+    /* IMPORTANT: translate Y by -50% to keep vertical center fixed,
+     and add your horizontal offset in the same translate() */
+    transform:
+        translate(calc(-50% + var(--x, 0px)), -50%) rotateY(var(--ry, 0deg)) scale(var(--scale, 1));
+
+    z-index: calc(100 + var(--z, 0));
+    filter: brightness(var(--dim, 1)) blur(var(--blur, 0px));
+}
+
+.cf-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cf-card .cf-shade {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #000;
+    opacity: var(--shade, 0);
+    /* controlled by JS */
+    pointer-events: none;
+}
+
+.cf-card.is-center {
+    pointer-events: auto
+}
+
+/* Arrows */
+.cf-nav {
+    position: absolute;
+    bottom: 22px;
+    width: 65px;
+    height: 65px;
+    display: grid;
+    place-items: center;
+    border: none;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: saturate(140%) blur(4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
+    cursor: pointer;
+    transition: transform .15s ease;
+}
+
+.cf-nav:hover {
+    transform: translateY(-2px)
+}
+
+.cf-prev {
+    left: 20%;
+    bottom: 15%;
+}
+
+.cf-next {
+    right: 20%;
+    bottom: 15%;
+}
+
+.cf-nav i {
+    font-size: 25px;
+    line-height: 1
+}
+
+.pu-coverflow .cf-nav {
+    background: rgba(0, 0, 0, .85);
+}
+
+.pu-coverflow .cf-nav i {
+    color: #fff;
+}
+
+
+
+
+/* new styles for the coverflow slider */
+
+/* Tabs row */
+.pu-pillar-tabs {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 6px 0 18px;
+}
+
+/* Base chip (button) */
+.pu-pillar-tabs .chip {
+    border: 0;
+    cursor: pointer;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    padding: 18.237px 30.062px;
+    font: 800 16px/1 var(--font-semibold, system-ui);
+    color: #fff;
+    position: relative;
+    transition: transform .15s ease, opacity .2s;
+    font-size: 23px;
+
+
+    border-radius: 20px !important;
+
+}
+
+
+/* Active arrow (to the right of the label) */
+.pu-pillar-tabs .chip.active::after {
+    content: "\2192";
+    /* → */
+    margin-left: 10px;
+    font-weight: 900;
+    opacity: .9;
+
+    padding-bottom: 1px;
+}
+
+/* Inactive = grey */
+.pu-pillar-tabs .chip:not(.active) {
+    background: #e5e7eb !important;
+    /* light grey */
+    color: #475569;
+    /* slate-ish text */
+    box-shadow: none;
+    opacity: .9;
+}
+
+/* Color gradients for active state */
+.chip-blue {
+    background: #03335B;
+}
+
+.chip-red {
+    background: #B33952;
+}
+
+.chip-green {
+    background: #2E6711;
+}
+
+.chip-orange {
+    background: #B37C39;
+}
+
+@media (max-width: 992px) {
+    .pu-pillar-tabs {
+        justify-content: center;
+        gap: 20px
+    }
+}
+
+/* transitions applieds */
+.pu-pillar-tabs .chip {
+    transition:
+        background .35s ease,
+        color .35s ease,
+        opacity .20s ease;
+}
+
+.pu-pillar-tabs .chip::after {
+    /* content:"\2192"; */
+    font-weight: 900;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity .25s ease, transform .25s ease;
+}
+
+.pu-pillar-tabs .chip.active::after {
+    opacity: .9;
+    transform: translateX(0);
+
+    padding-bottom: 1px;
+}
+
+
+/* Grid layout for pillar tabs */
+.pu-pillar-tabs {
+    display: grid;
+    /* switch from flex -> grid */
+    grid-template-columns: repeat(4, 300px);
+    gap: 24px;
+}
+
+/* Make each chip fill its grid cell neatly */
+.pu-pillar-tabs .chip {
+    width: 100%;
+    justify-content: center;
+    /* center the label/arrow */
+    text-align: center;
+}
+
+/* Tablet: 2 columns */
+
+
+
+
