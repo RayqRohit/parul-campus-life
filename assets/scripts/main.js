@@ -4,14 +4,32 @@ document.addEventListener('DOMContentLoaded', function () {
   const defaultImage = './assets/images/campus-1.jpg';
   const defaultAlt = 'Green campus areas and gardens';
 
-  // Preload hover images
-  statsCards.forEach(card => {
+  // Optimized image preloading with lazy loading
+  const imageCache = new Map();
+
+  // Preload only the first few hover images
+  statsCards.forEach((card, index) => {
     const hoverImage = card.dataset.image;
-    if (hoverImage) {
+    if (hoverImage && index < 2) { // Only preload first 2 images
       const img = new Image();
       img.src = hoverImage;
+      imageCache.set(hoverImage, img);
     }
   });
+
+  // Debounced image switching
+  let imageChangeTimeout;
+  function debounceImageChange(imageSrc, imageAlt, delay = 50) {
+    clearTimeout(imageChangeTimeout);
+    imageChangeTimeout = setTimeout(() => {
+      campusImage.src = imageSrc;
+      campusImage.alt = imageAlt;
+      campusImage.style.opacity = '0.3';
+      setTimeout(() => {
+        campusImage.style.opacity = '1';
+      }, 50);
+    }, delay);
+  }
 
   statsCards.forEach(card => {
     const hoverImage = card.dataset.image;
@@ -19,21 +37,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (hoverImage) {
       card.addEventListener('mouseenter', function () {
-        campusImage.src = hoverImage;
-        campusImage.alt = hoverAlt;
-        campusImage.style.opacity = '0.3';
-        setTimeout(() => {
-          campusImage.style.opacity = '1';
-        }, 50);
+        // Lazy load image if not cached
+        if (!imageCache.has(hoverImage)) {
+          const img = new Image();
+          img.src = hoverImage;
+          imageCache.set(hoverImage, img);
+        }
+        debounceImageChange(hoverImage, hoverAlt);
       });
 
       card.addEventListener('mouseleave', function () {
-        campusImage.src = defaultImage;
-        campusImage.alt = defaultAlt;
-        campusImage.style.opacity = '0.3';
-        setTimeout(() => {
-          campusImage.style.opacity = '1';
-        }, 50);
+        debounceImageChange(defaultImage, defaultAlt);
       });
     }
   });
@@ -41,11 +55,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// slider functionality
-
-// Virtual Tour Slider JavaScript
+// Virtual Tour Slider JavaScript - Optimized
 // campus slider: drag + trackpad only, center only first image on load
-/* Campus slider: drag + trackpad + smooth autoplay (infinite loop) */
+/* Campus slider: drag + trackpad + smooth autoplay (infinite loop) - Performance Optimized */
 (() => {
   const slider = document.getElementById('campusSlider');        // .slider-wrapper
   if (!slider) return;
@@ -53,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!track) return;
 
   /* ===== Controls (override via data-speed / data-pause) ===== */
-  const SPEED_DEFAULT = 60;   // px per second (faster)
-  const PAUSE_DEFAULT = 1200;  // ms resume delay after drag
+  const SPEED_DEFAULT = 40;   // px per second (reduced for performance)
+  const PAUSE_DEFAULT = 1500;  // ms resume delay after drag (increased)
 
   const SPEED = Number(slider.dataset.speed) || SPEED_DEFAULT;
   const PAUSE_MS = Number(slider.dataset.pause) || PAUSE_DEFAULT;
@@ -62,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let loopWidth = 0;
   let rafId = null, lastTs = 0;
   let autoplay = true;
+  let isVisible = true; // Track visibility for performance
 
   /* build seamless loop */
   const originals = Array.from(track.children);
@@ -76,18 +89,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function recalc() { loopWidth = track.scrollWidth / 2; }
 
-  /* RAF loop (never stops unless tab hidden) */
+  /* Optimized RAF loop with visibility check */
   function tick(ts) {
     if (!lastTs) lastTs = ts;
     const dt = Math.min(50, ts - lastTs);
     lastTs = ts;
 
-    if (autoplay) {
+    // Only animate if visible and autoplay is enabled
+    if (autoplay && isVisible) {
       slider.scrollLeft += (SPEED * dt / 1000);
       if (slider.scrollLeft >= loopWidth) slider.scrollLeft -= loopWidth;
     }
     rafId = requestAnimationFrame(tick);
   }
+
   const start = () => { if (rafId == null) rafId = requestAnimationFrame(tick); };
   const stop = () => { if (rafId != null) { cancelAnimationFrame(rafId); rafId = null; } };
 
@@ -101,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
   })();
 
-  /* drag to scroll (mouse / touch / pen) */
+  /* drag to scroll (mouse / touch / pen) - Optimized */
   let isDown = false, startX = 0, startScroll = 0;
 
   slider.addEventListener('pointerdown', (e) => {
@@ -132,8 +147,19 @@ document.addEventListener('DOMContentLoaded', function () {
   slider.addEventListener('pointercancel', endDrag);
   slider.addEventListener('mouseleave', () => { if (isDown) endDrag({}); });
 
-  /* NO hover/wheel pause anymore */
-  // (removed mouseenter/mouseleave/wheel listeners)
+  /* Intersection Observer for performance optimization */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      isVisible = entry.isIntersecting;
+      if (!isVisible) {
+        autoplay = false; // Pause when not visible
+      } else if (!isDown) {
+        autoplay = true; // Resume when visible (unless dragging)
+      }
+    });
+  }, { threshold: 0.1 });
+
+  observer.observe(slider);
 
   /* respect reduced motion only if you want — comment the next 3 lines to always autoplay */
   const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -142,11 +168,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* pause loop when tab hidden; resume on return */
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) stop();
-    else { lastTs = 0; start(); }
+    if (document.hidden) {
+      stop();
+      isVisible = false;
+    } else {
+      lastTs = 0;
+      start();
+      isVisible = true;
+    }
   });
 
-  /* init */
+  /* init with debounced resize */
   imagesReady().then(() => {
     recalc();
     slider.scrollLeft = 0;
@@ -159,8 +191,38 @@ document.addEventListener('DOMContentLoaded', function () {
         const pos = loopWidth ? (slider.scrollLeft % loopWidth) : 0;
         recalc();
         slider.scrollLeft = pos;
-      }, 160);
+      }, 200); // Increased debounce time
     });
+  });
+})();
+
+
+// Auto-scroll enhancement for Virtual Tour (campusSlider)
+// This adds automatic scrolling to the existing slider functionality
+(() => {
+  const slider = document.getElementById('campusSlider');
+  if (!slider) return;
+
+  let autoScrolling = true;
+  const scrollSpeed = 0.5; // pixels per frame (adjust for speed)
+
+  function autoScroll() {
+    if (autoScrolling) {
+      slider.scrollLeft += scrollSpeed;
+
+      // Reset to beginning when reaching the end for infinite loop
+      if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
+        slider.scrollLeft = 0;
+      }
+    }
+    requestAnimationFrame(autoScroll);
+  }
+
+  // Start auto-scrolling when page loads
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      autoScroll();
+    }, 1000); // Start after 1 second delay
   });
 })();
 
@@ -285,25 +347,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// hiding the navbar
-
+// navbar hiding - Optimized
 document.addEventListener('DOMContentLoaded', function () {
   const navbar = document.querySelector('.pu-topbar');
   const virtualTour = document.querySelector('.pu-virtual-tour'); // Must match the Virtual Tour section only
 
   if (!navbar || !virtualTour) return;
 
+  // Throttle the observer callback for better performance
+  let ticking = false;
   const observer = new IntersectionObserver(
     ([entry]) => {
-      if (entry.isIntersecting) {
-        navbar.classList.add('hidden-nav');   // Hide navbar
-      } else {
-        navbar.classList.remove('hidden-nav'); // Show navbar
-      }
+      if (ticking) return;
+      ticking = true;
+
+      requestAnimationFrame(() => {
+        if (entry.isIntersecting) {
+          navbar.classList.add('hidden-nav');   // Hide navbar
+        } else {
+          navbar.classList.remove('hidden-nav'); // Show navbar
+        }
+        ticking = false;
+      });
     },
     {
       root: null,
-      threshold: 0 // triggers as soon as any part of the virtual tour enters/exits
+      threshold: 0.1, // Increased threshold for better performance
+      rootMargin: '0px 0px -10% 0px' // Add margin for smoother transitions
     }
   );
 
@@ -402,7 +472,7 @@ document.addEventListener('DOMContentLoaded', function () {
   tabs.forEach(btn => btn.addEventListener('click', () => {
     currentFilter = btn.dataset.filter;
     updateTabs();
-    active = Math.floor(visibleCards().length / 2);  
+    active = Math.floor(visibleCards().length / 2);
     layout();
   }));
 
@@ -416,9 +486,5 @@ document.addEventListener('DOMContentLoaded', function () {
   active = Math.floor(visibleCards().length / 2);
   layout();
 })();
-
-
-
-// loader part
 
 
