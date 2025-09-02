@@ -25,7 +25,7 @@ Your website is loading **50+ MB of images**, which is causing the slow loading 
 ### 1. **Image Compression (CRITICAL)**
 Use online tools to compress images:
 
-- **TinyPNG**: https://tinypng.com/
+- **TinyPNG**:  
 - **Squoosh**: https://squoosh.app/
 - **ImageOptim**: https://imageoptim.com/
 
